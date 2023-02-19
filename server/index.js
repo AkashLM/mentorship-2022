@@ -103,12 +103,6 @@ try {
 	app.use('/api/v1/PermissionGrouped', Router36);
 
 	//Error Handling Middleware
-	app.all('*', (req, res) => {
-		res.status(404).json({
-			status: '404 Error',
-			message: 'Page not found'
-		});
-	});
 
 	app.use((Error, req, res, next) => {
 		res.status(500).json({
