@@ -6,8 +6,11 @@ import ApprovalNotes from "../ApprovalNotes/ApprovalNotes";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import DateConverter from "../../../../HelpingFunctions/DateConverter";
+import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../../HelpingFunctions/Loader";
 
 function PendingNotes(Props) {
+  
   const { typeOfUser, ViewNotesProp, setViewNotesProp,mentorData } = Props;
   const [loading, setLoading] = useState(true);
   const [refresher,setRefresher] = useState(false);
@@ -75,7 +78,12 @@ function PendingNotes(Props) {
   return (
     <>
       {loading ? (
-        <>Loading</>
+        <>
+            
+        <div><CircularColor/><LogoutLoader refresher={refresher}
+        setRefresher={setRefresher}/></div>
+     
+    </>
       ) : (
         <>
           {" "}

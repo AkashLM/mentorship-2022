@@ -6,9 +6,11 @@ import Meetingimg from "./meetingimg.png";
 import Button from "@mui/material/Button";
 import "./CustomTable.css";
 import DateConverter from "../../../../HelpingFunctions/DateConverter"
-
+import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../../HelpingFunctions/Loader";
 
 function ScheduledMeetings(Props) {
+  const { refresher, setRefresher } = Props;
   const { mentorData, setMentorData } = Props;
   const [allMeeting, setAllMeeting] = useState([]);
   const [currentMeetings, setCurrentMeetings] = useState([]);
@@ -61,7 +63,12 @@ function ScheduledMeetings(Props) {
   return (
     <>
       {loading ? (
-        "Loading"
+        <>
+            
+        <div><CircularColor/><LogoutLoader refresher={refresher}
+        setRefresher={setRefresher}/></div>
+     
+    </>
       ) : (
         <div>
           <div className="scheduled-center">

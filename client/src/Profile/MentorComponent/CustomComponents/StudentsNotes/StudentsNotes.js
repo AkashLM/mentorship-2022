@@ -5,9 +5,11 @@ import TestPDF from "./test.pdf";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 import axios from "axios";
 import Cookies from "universal-cookie";
-
+import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../../HelpingFunctions/Loader";
 
 function StudentsNotes(Props,ref) {
+  const { refresher, setRefresher } = Props;
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   const {typeOfUser,ViewNotesProp}=Props;
@@ -77,7 +79,15 @@ function StudentsNotes(Props,ref) {
 
   return (
     <>{
-      loading ? (<>Loading</>):(<>      <div className="notesContainer">
+      loading ? (
+        <>
+            
+        <div><CircularColor/><LogoutLoader refresher={refresher}
+        setRefresher={setRefresher}/></div>
+     
+    </>
+      
+      ):(<>      <div className="notesContainer">
       <div className="child-contain-2 mt-5 mb-5">
         <div className="row">
           <h1 className="text-center">Notes View</h1>

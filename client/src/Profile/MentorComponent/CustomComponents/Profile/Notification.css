@@ -49,13 +49,15 @@
 .notificationWrapper{
   height: 85%;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
   .notificationContainer {
     width: 100%;
     max-width: 290px;
-    min-height: 70px;
-    max-height: fit-content;
+    /* min-height: 70px; */
+    /* max-height: fit-content; */
     background: #5e626ef0;
     border-radius: 10px;
     display: flex;
@@ -66,6 +68,7 @@
     margin-top: 0.5rem;
     transform: scale(0.95);
     padding-right: 3px;
+    padding-bottom: 0.3rem;
   }
   
   .notificationContainer:hover {

@@ -5,8 +5,11 @@ import SubmmitedAssignmentsData from "./SubmmitedAssignmentsData";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import DateConverter from "../../../../HelpingFunctions/DateConverter";
+import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../../HelpingFunctions/Loader";
 
 function Assignments(Props) {
+  const { refresher, setRefresher } = Props;
   const { mentorData } = Props;
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
@@ -123,7 +126,12 @@ function Assignments(Props) {
   return (
     <>
       {loading ? (
-        <>Loading</>
+        <>
+            
+        <div><CircularColor/><LogoutLoader refresher={refresher}
+        setRefresher={setRefresher}/></div>
+     
+    </>
       ) : (
         <>
           <div>

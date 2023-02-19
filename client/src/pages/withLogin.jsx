@@ -25,6 +25,7 @@ import MentorAssignment from "../Profile/MentorComponent/CustomComponents/Assign
 import ViewMentorStudentProfile from "../Profile/MentorComponent/CustomComponents/StudentProfile/ViewMentorStudentProfile";
 import CircularColor from "../HelpingFunctions/Loader";
 import LogoutLoader from "../HelpingFunctions/LogoutLoader";
+import PageNotFound from "./PageNotFound"
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -214,6 +215,10 @@ const WithLogin = (Props) => {
               path="/previousmeetup"
               element={<PreviousMeetup studentData={studentData} />}
             />
+             <Route
+              path="/*"
+              element={<PageNotFound />}
+            />
           </Routes>
         </>
       );
@@ -309,6 +314,10 @@ const WithLogin = (Props) => {
             />
 
             <Route path="/approved" element={<ApprovalNotes />} />
+            <Route
+              path="/*"
+              element={<PageNotFound />}
+            />
           </Routes>
         </>
       );

@@ -75,8 +75,8 @@ function Notification(Props) {
   }, [loading,refresh]);
   return (
     <div className="notificationP">
-      <div className="notificationWrapper">
         <h2>Updates</h2>
+      <div className="notificationWrapper">
         {Messagedata.map((Item) => {
           return (
             <div class="notificationContainer">

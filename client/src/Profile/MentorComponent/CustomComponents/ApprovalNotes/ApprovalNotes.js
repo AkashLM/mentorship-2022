@@ -79,7 +79,7 @@ const ApprovalNotes = (Props) => {
                         <td>{item.Topic}</td>
                         <td>{item.Notes}</td>
                         <td>
-                          <a href={item.Notes}>
+                          <a target="_Blank" href={item.Notes}>
                             {" "}
                             <button
                               className="btn btn-primary approval-btn"

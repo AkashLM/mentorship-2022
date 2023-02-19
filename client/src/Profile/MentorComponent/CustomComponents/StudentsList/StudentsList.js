@@ -4,8 +4,11 @@ import StudentData from "./StudentData";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../../HelpingFunctions/Loader";
 
 function StudentsList(Props) {
+  const { refresher, setRefresher } = Props;
   const { mentorData, setViewStudentProfile } = Props;
   const [GroupDataStudent, setGroupDataStudent] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +41,13 @@ function StudentsList(Props) {
   return (
     <>
       {loading ? (
-        <>Loading</>
+          <>
+            
+              <div><CircularColor/><LogoutLoader refresher={refresher}
+              setRefresher={setRefresher}/></div>
+           
+          </>
+      
       ) : (
         <div>
           <div className="containerStudentList">
