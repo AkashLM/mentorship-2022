@@ -1,0 +1,58 @@
+.child-container {
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 5px 2px gray;
+}
+
+.child1-card {
+    padding: 20px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.random-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.description-card{
+padding: 20px;
+margin-top: 50px;
+border-radius: 10px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+box-shadow: 1px 1px 3px  gray;
+}
+
+.info-card{
+    font-size: 25px;
+}
+
+.map-card{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: block;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 3px  gray;
+    }
+
+    .card-mentor{
+        display: flex;
+    }
+
+    .card-venue{
+        margin-left: 1rem;
+    }

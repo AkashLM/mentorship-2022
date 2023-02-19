@@ -1,0 +1,301 @@
+@import url("../../../../App.css");
+
+
+.body{
+  background-color:  #f3f2ef;
+}
+.meeting {
+  position: absolute;
+  height: 85vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem 3rem 3rem 3rem;
+  width: 50%;
+  border-radius: 23px;
+  /* background: bisque; */
+  background: var(--white-background);
+  box-shadow: 33px 33px 85px #cecece, -33px -33px 85px #f2f2f2;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.meeting {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.mentorFormHeading{
+  font-size: 3rem;
+}
+.mentorFLex{
+  display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+}
+.meetingElementBlock {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.meeting input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 10px 10px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--inputBorder-color);
+}
+.meeting .text-area{
+  width: 100%;
+  min-height: 5rem;
+  max-height: 17rem;
+  border: solid 1px;
+  border-radius: 3px;
+  margin-left: 1rem;
+}
+
+.meeting input:focus {
+  outline: 1.5px solid var(--inputBorder-color);
+}
+
+.meeting p {
+  font-size: 1.2rem;
+  color: var(--red-font);
+  margin: -10px 0 5px 10px;
+}
+
+.meeting button {
+  background: var(--button-color);
+  color: var(--white-font);
+  /* margin: 1rem; */
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  /* margin-right: 0.8rem; */
+  outline: none;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+
+.mainContainer{
+  max-width: 75%;
+  margin: auto;
+}
+
+.section{
+  border-radius: var(--corner-radius);
+  box-shadow: var(--elevated-line);
+  overflow: hidden;
+  margin: 1rem auto;
+  background-color: #ffffff;
+}
+
+.section1{
+  height: 50rem;
+
+}
+.empty{
+  height: 100%;
+}
+.profilebg {
+  display: flex;
+  /* background-image: url("./2.jpg");
+  background-size: contain;
+  background-repeat: no-repeat; */
+  width: 100%;
+  max-height: 50%;
+}
+.profilebg img{
+  width: 100%;
+  height: 100%;
+}
+
+.profileEdit{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+.profile{
+  display: block;
+  /* align-items: flex-end;
+  vertical-align: bottom; */
+  margin: -7rem auto auto 3rem;
+}
+
+.profile img {
+  border-radius: 50%;
+  vertical-align: bottom;
+  height: 15rem;
+  width: 15rem;
+  border: solid 3px white;
+  margin-top: 50%;
+}
+
+.editProfileButton{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin: 1rem 2rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.editButton {
+  overflow: hidden;
+  align-items:center;
+  width:40px;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0;
+  padding-right: 10px;
+  position: relative;
+  -webkit-transition: background .4s;
+  transition: background 50ms;
+}
+.editButton span {
+  display: inline-block;
+  /* float: left; */
+}
+.editButton .edit-icon {
+  height: 40px;
+  position: relative;
+  width: 40px;
+}
+.edit-icon:before {
+  border: 3px solid #0970e5;
+  border-radius: 3px;
+  content: "";
+  display: inline-block;
+  height: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+}
+.edit-icon:after { 
+  background: #ffffff;
+  border: 2px #0970e5 solid;
+  border-bottom-left-radius: 5px 15px;
+  border-bottom-right-radius: 5px 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; 
+  box-shadow: 0 0 0 1px #0970e5;
+  content: "";
+  display: inline-block;
+  height: 55%;
+  position: absolute;
+  top: 7%;
+  left: 45%;
+  width: 6px; 
+  transform: translate(0, 0) rotate(45deg);
+  transform-origin: 50% 75%;
+  transition:  .4s, box-shadow .4s;
+}
+.editButton:hover span:after {
+  animation: wiggle .25s 3 linear;
+}
+@keyframes wiggle {
+  0% {transform: translate(0,0) rotate(45deg);}
+  25% {transform: translate(0,0) rotate(25deg);}
+  50% {transform: translate(0,0) rotate(45deg);}
+  75% {transform: translate(0,0) rotate(65deg);}
+  100% {transform: translate(0,0) rotate(45deg);}
+}
+.profile-head{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.nameOrg{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.profileName{
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.Organization{
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.personalInfo{
+  padding: 3rem;
+  margin-top: 3rem;
+  font-size: 1.4rem;
+}
+
+
+.personalProfile{
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+.personalInfo{
+  display: flex;
+}
+
+.linkA{
+  text-decoration: none;
+  color: #111;
+}
+
+
+
+.section2{
+  max-height: 20rem;
+  padding: 3rem;
+  overflow-y: scroll;
+}
+
+.sectionHead{
+  font-size: 2rem;
+  font-weight: 500;
+}
+.aboutText{
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.section3{
+  padding: 3rem ;
+}
+
+
+/* COunter tab */
+
+.section4{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3rem 3rem 0 3rem;
+  margin-bottom: 5rem;
+}
+

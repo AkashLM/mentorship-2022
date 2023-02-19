@@ -1,0 +1,21 @@
+.OpenPdfContainer {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.buttons-1 {
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.buttons-1 .btn {
+    width: 8rem;
+}
+
+.date-1 {
+    background-color: rgb(206, 206, 224);
+    text-transform: capitalize;
+    font-size: 1rem;
+}

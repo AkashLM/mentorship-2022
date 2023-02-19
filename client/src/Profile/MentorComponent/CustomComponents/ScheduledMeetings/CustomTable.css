@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+/* @import url(); */
+
+:root {
+  --customTable-box-hover: #fafcff;
+  --customTable-box-border: #e9ebf0;
+}
+
+.customTable-container {
+  width: 80%;
+  margin: auto;
+  padding: 16px 24px 24px 0;
+}
+
+.customTable-content {
+  overflow: hidden;
+  padding: 5px;
+}
+.customTables-section {
+  flex-shrink: 0;
+  box-shadow: var(--elevated-line);
+  flex: 1;
+  width: 100%;
+  border-radius: 30px;
+  position: relative;
+  overflow: auto;
+  transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
+}
+
+.customTable-box {
+  border-top: 1px solid var(--customTable-box-border);
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+.customTable-box:hover {
+  background-color: var(--cutom-table-color-hover);
+  border-top-color: #c3cff4;
+}
+
+.customTable-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.customTable-header .name {
+  font-size: 1.6rem;
+  line-height: 16px;
+  font-weight: 700;
+  color: #1f1c2e;
+  margin: 0;
+}
+.customTable-header p{
+  font-size: 1.4rem;
+  color: #4a4a4a;
+}
+
+.customTable-content {
+  padding-left: 16px;
+  width: 100%;
+}
+
+.customTable-line {
+  font-size: 1.4rem;
+  line-height: 15px;
+  margin: 8px 0;
+  color: #4a4a4a;
+  opacity: 0.7;
+}
+
+.customTable-line.time {
+  text-align: right;
+  margin-bottom: 0;
+}

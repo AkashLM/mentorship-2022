@@ -1,0 +1,143 @@
+:root {
+  font-size: 10px;
+  --sidebar: #281a63;
+  --sidebartext: #111111;
+  --button-color: #281a63;
+  --link-color: #0970e5;
+  --inputBorder-color: #111;
+  --white-background: #fff;
+  --white-font: #fff;
+  --red-font: #ff0000;
+  --red-button: #ff0000;
+  --grey-thead: #ebecf0;
+  --corner-radius: 0.8rem;
+  --elevated-line: 0px 0px 1px 1px #e8e8e8;
+  --cutom-table-color-hover: #f2f0fc;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin-left: 7rem;
+  transition: 0.5s ease-in;
+}
+
+.bodyMargin-withNavClose{
+  margin-left: 6rem;
+}
+.bodyMargin-withNavOpen{
+  margin-left: 250px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.pageHeading {
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+}
+
+.glassContainer {
+  position: relative;
+  font-family: sans-serif;
+}
+
+.glassContainer::before,
+.glassContainer::after {
+  content: "";
+  background-color: #fab5704c;
+  position: absolute;
+}
+
+.glassContainer::before {
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  top: 30%;
+  right: 7%;
+}
+
+.mainGlassContainer {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.141);
+  /* border: 1px solid rgba(255, 255, 255, 0.222); */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  border-radius: 7px;
+  transition: all ease 0.3s;
+}
+.mainGlassContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.width80 {
+  max-width: 80%;
+  margin: auto;
+}
+
+.tobe {
+  background: #353353;
+  color: #ff6f6f;
+  background: #0c0a2b;
+  background: #080624;
+  border-right: solid 1px #80808021;
+  background: #7e7e7e1f;
+  background: #ffffff1f;
+  background: #ffffff1f;
+}
+
+
+.mobileOverlay{
+  display: none;
+}
+@media (max-width: 1200px) {
+  .mobileOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 0, 0);
+    z-index: 100;
+    cursor: pointer;
+    display: block;
+  }
+
+  .overlayText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 1.6rem;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .overlayLogo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-image: url("./assets/Keystone_logo.png");
+    background-repeat: none;
+    background-size: cover;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+.valid .MuiSnackbarContent-root{
+  Background-color: #4BB543 !important;
+}

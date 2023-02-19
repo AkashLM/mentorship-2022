@@ -1,0 +1,19 @@
+.Login-Container{
+    background-color: #ffffff;
+    margin-top: 4rem;
+    height: 75vh;
+    box-shadow: 0 0 10px rgb(222, 217, 217);
+    width: 30%;
+}
+
+.MuiSnackbarContent-root{
+    color: white !important;
+    font-size: 1.6rem !important;
+    width: 310px !important;
+    height: 48px;
+}
+
+
+.invalid .MuiSnackbarContent-root{
+    Background-color: red !important;
+}

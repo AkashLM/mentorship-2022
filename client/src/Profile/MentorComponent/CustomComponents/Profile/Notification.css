@@ -1,0 +1,114 @@
+@import url(../../../../App.css);
+
+
+.notificationP h2{
+    font-size: 2rem;
+    margin: 1rem auto;
+    font-weight: 600;
+    font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+}
+.notificationP {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+  min-width: 290px;
+  position: fixed;
+}
+
+.msgContainer{
+    border-radius: 5px;
+    width: 95%;
+    border: solid 1px var(--grey-thead);
+    box-shadow: var(--elevated-line);
+    /* padding: 0; */
+    height: 30px;
+    display: flex;
+    
+}
+
+.msgInput{
+    margin: auto;
+    height: 100%;
+    outline: none;
+    width: 80%;
+    background: none;
+    font-size: 1.8rem;
+}
+
+.msgSend svg {
+    display: block;
+    transform-origin: center center;
+    transform: translateX(-1.2em) rotate(45deg) scale(1.1);
+    width: 18px;
+    color: var(--link-color);
+  }
+
+
+
+.notificationWrapper{
+  height: 85%;
+  overflow-y: scroll;
+}
+
+  .notificationContainer {
+    width: 100%;
+    max-width: 290px;
+    min-height: 70px;
+    max-height: fit-content;
+    background: #5e626ef0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease-in-out;
+    margin-top: 0.5rem;
+    transform: scale(0.95);
+    padding-right: 3px;
+  }
+  
+  .notificationContainer:hover {
+    cursor: pointer;
+    transform: scale(1.0);
+  }
+  
+  .notificationContainer .img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background: linear-gradient(#d7cfcf, #9198e5);
+  }
+  
+  .notificationTextBox {
+    /* width: 80%; */
+    margin-left: 10px;
+    width: 75%;
+    color: white;
+    font-family: 'Poppins' sans-serif;
+  }
+  
+  .notificationTextContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .span {
+    font-size: 1rem;
+    color: rgb(185, 185, 192);
+  }
+  
+  .h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  
+  .p {
+    font-size: 1.2rem;
+    font-weight: lighter;
+  }
+  
+  

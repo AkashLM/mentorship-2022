@@ -1,0 +1,151 @@
+@import "../../../../App.css";
+
+.addmeetingFlex {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+  }
+
+  .meetingContainer {
+    justify-items: center;
+  }
+
+
+  
+.addmeeting {
+  margin: auto;
+  padding: 3rem 4rem 3rem 3rem;
+  width: 50rem;
+  border-radius: 23px;
+  background: var(--white-background);
+  box-shadow: 33px 33px 85px #cecece, -33px -33px 85px #f2f2f2;
+}
+
+.addmeeting h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    margin: auto;
+    margin-top: 0.1rem;
+    margin-bottom: 1rem;
+    color: black;
+    border-bottom: solid 1px #b1aeae;
+  }
+
+.meetingElementBlock{
+    width: 100%;
+}
+
+.label {
+    display: block;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.addmeeting input {
+    width: 100%;
+    height: 4rem;
+    padding: 10px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--inputBorder-color);
+}
+
+.inputFlex{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    
+}
+.addmeeting p{
+    font-size: 1.2rem;
+    color: var(--red-font);
+    margin: -10px 0 5px 10px;
+}
+
+.addmeeting button{
+    background: var(--button-color);
+    color: var(--white-font);
+    margin: 1rem;
+    padding: 1rem 2.08rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.8rem;
+    outline: none;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+.meetingAddButton:disabled {
+    background-color: #b1aeae;
+    cursor: default;
+  }
+  
+
+
+@media (max-width: 699px){
+    .addmeeting{
+        
+        padding: 2rem 3rem 2rem 2rem;
+        max-width: 35rem;
+        border-radius: 20px;
+    }
+}
+
+
+
+
+
+
+
+  .quoteContainer {
+    width: 40%;
+    justify-items: center;
+    /* background-color: red; */
+  }
+  .mainQuotecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3em;
+    /* box-shadow: 0 4px 10px #b0c6d4; */
+    border-radius: 15px;
+    width: 600px;
+    /* background-color: #f9f9f9; */
+    margin: 10px;
+    text-align: center;
+  }
+  
+  
+  .quoteLeft svg,
+  .quoteRight svg {
+    width: 3em;
+    height: 3rem;
+    display: inline;
+  }
+  .quoteLeft svg {
+    margin-bottom: 2rem;
+  }
+  
+  
+  .quote {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 3rem;
+  }
+  
+  .author {
+    margin: 1em;
+    text-align: right;
+    font-size: 2.5em;
+    font-style: italic;
+    font-family: cursive;
+  }
+  
+  

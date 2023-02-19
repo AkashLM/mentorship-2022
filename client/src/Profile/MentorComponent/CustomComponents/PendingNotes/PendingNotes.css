@@ -1,0 +1,31 @@
+.row-highlights:hover{
+  background-color: rgb(214, 232, 248);
+}
+.card{
+  box-shadow: 0px 0px 2px black;
+}
+
+@media only screen and (max-width: 900px) {
+.view-btn{
+  margin-top: 20px;
+  width: 130px;
+  margin-left:20px;
+}
+}
+
+@media only screen and (max-width: 900px) {
+.approval-btn{
+  margin-top: 20px;
+  width: 110px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+}
+}
+
+.approval-btn{
+margin-left: 20px;
+}
+
+.view-btn{
+  width: 100px;
+}

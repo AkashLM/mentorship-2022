@@ -1,0 +1,253 @@
+.scheduledMeetingHeading {
+  text-align: center;
+  margin: 2rem auto;
+}
+.scheduled-center {
+  width: 100%;
+  /* background-color: aqua; */
+  /* margin: auto; */
+  /* text-align: center; */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.table-wrapper {
+  margin: 0.6rem 4.3rem 4.3rem;
+  box-shadow: 0px 0px 2px black;
+  width: 85%;
+  /* background-color: antiquewhite; */
+}
+.xx {
+  /* background-color: aquamarine; */
+  width: 100rem;
+}
+.scheduledMeetingHeading {
+  /* background-color: antiquewhite; */
+  margin: 2rem auto;
+}
+
+.fl-table {
+  border-radius: 0.3rem;
+  font-size: 14px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.fl-table td,
+.fl-table th {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.fl-table td {
+  width: 14rem;
+  border-right: 1px solid #f8f8f8;
+  font-size: 14px;
+}
+
+.fl-table thead th {
+  color: #111;
+  background: var(--grey-thead);
+  padding: 1rem;
+  border: 2px solid white;
+}
+
+.scheduleMeetingButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.3rem;
+  border: none;
+  width: 5rem;
+  color: #fff;
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+}
+
+.scheduleMeetingButton:hover {
+  opacity: 0.7;
+}
+
+.btn-grp {
+  display: flex;
+  gap: 0.6rem;
+}
+
+#delete {
+  outline: solid 1px var(--red-button);
+  color: var(--red-font);
+  background: none;
+}
+
+#edit {
+  background: var(--button-color);
+}
+
+.card-whole {
+  width: 100%;
+  padding: 1rem;
+  color: #e6e4e4;
+}
+.card-topic {
+  font-weight: 700;
+}
+.card-one {
+  /* height: 20rem; */
+  padding: 0.5rem;
+  background: rgb(114,108,248);
+  background: linear-gradient(319deg, rgba(114,108,248,1) 6%, rgba(233,117,168,1) 96%);
+  border-radius: 1rem 1rem 4rem 1rem;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+.card-index {
+  left: 1rem;
+  /* color: rgb(112, 249, 112); */
+  color: #111;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
+  position: absolute;
+}
+.card-right {
+  /* background-color: aqua; */
+/* 
+  width: fit-content; */
+}
+.card-left {
+  font-size: xx-large;
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* justify-content: start; */
+}
+.card-mentor {
+  font-size: medium;
+  /* background-color: aqua; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: start; */
+}
+.card-highlight {
+  color: rgb(15, 45, 155);
+  font-weight: 600;
+}
+
+.card-button {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.card-date {
+  font-size: large;
+}
+.card-venue {
+  font-size: medium;
+}
+
+@media (max-width: 767px) {
+  .fl-table {
+    display: block;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+  }
+
+  .table-wrapper:before {
+    content: "Scroll horizontally >";
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 0.6rem;
+  }
+
+  .table-wrapper {
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fl-table thead,
+  .fl-table tbody,
+  .fl-table thead th {
+    display: block;
+  }
+
+  .fl-table thead th:last-child {
+    border-bottom: none;
+  }
+
+  .fl-table thead {
+    float: left;
+  }
+
+  .fl-table tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .fl-table td,
+  .fl-table th {
+    padding: 1.25rem 0.625em 0.625em 0.625em;
+    height: 5rem;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 8.75rem;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+
+  .fl-table thead th {
+    width: 7rem;
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+
+  .fl-table tbody tr {
+    display: table-cell;
+  }
+
+  .fl-table tbody tr:nth-child(odd) {
+    background: none;
+  }
+
+  .fl-table tr:nth-child(even) {
+    background: transparent;
+  }
+
+  .fl-table tr td:nth-child(odd) {
+    background: #f8f8f8;
+    border-right: 1px solid #e6e4e4;
+  }
+
+  .fl-table tr td:nth-child(even) {
+    border-right: 1px solid #e6e4e4;
+  }
+
+  .fl-table tbody td {
+    display: block;
+    text-align: center;
+  }
+
+  .btn-grp {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #delete {
+    margin-bottom: 0.18rem;
+  }
+}

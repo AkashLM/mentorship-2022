@@ -1,0 +1,235 @@
+.row h2{
+  color: #212121c1;
+  font-size: 2rem;
+  font-weight: 500;
+  border-bottom:solid 1px #212121c1  ;
+  margin-bottom: 1rem;
+  padding-bottom: 5px;
+}
+.deatils h4{
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #212121d3;
+}
+.deatils p{
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+
+.deatils span{
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+
+.header-img {
+    height: 200px;
+    border-radius: 50%;
+}
+
+.student-info{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.profile-conteiner{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 5px 2px gray;
+}
+
+.ks-container{
+
+    box-shadow: 1px 1px 3px  gray;
+}
+
+.ks-child-container{
+    font-size: 20px;
+}
+
+.ks-name-conatiner{
+    padding: 20px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 5px 1px gray;
+}
+
+
+.personal-deatils-btn{
+    font-size: 18px;
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    background-color: #efad19;
+    box-shadow: 0px 3px 1px -2px rgb(0, 0, 0);
+}
+
+.family-deatils-btn{
+    font-size: 18px;
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #0275d8;
+    box-shadow: 0px 3px 1px -2px rgb(0, 0, 0);
+}
+
+.acadmic-deatils-btn{
+    font-size: 18px;
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #3C873A;
+    box-shadow: 0px 3px 1px -2px rgb(0, 0, 0);
+}
+
+.submit-assignment-card{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: block;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 3px  gray;
+}
+
+.pending-assignment-card{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: block;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 3px  gray;
+}
+
+.attendance-card{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: block;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 3px  gray;
+}
+
+.information-container{
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    display: block;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 5px 2px gray;
+    overflow-y: scroll;
+}
+
+
+
+
+
+.counterCard {
+    width: 20rem;
+    height: 12rem;
+    transition: all .5s;
+    box-shadow: 15px 15px 30px rgba(25, 25, 25, 0.11),
+               -15px -15px 30px rgba(60, 60, 60, 0.082);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  
+  .counterCard:hover {
+    height: 20rem;
+    background: linear-gradient(360deg, #edededc5 20%, hsla(0, 0%, 13%, 1) 70%);
+  }
+  
+  .counterCard .header {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #212121c1;
+    margin-bottom: 16px;
+  }
+  
+  .counterCard .header .img-box {
+    width: 50px;
+    height: 48px;   
+    font-size: 4.2rem;
+    color: #fff;
+  }
+
+
+  
+  .counterCard .header .title {
+    font-size: 1.2rem;
+    letter-spacing: .1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 4px 0 14px 0;
+    transition: all .5s;
+    color: #edededc5;
+  }
+  
+  .counterCard .header .assignments{
+    font-size: 1.1rem;
+  }
+  
+  .counterCard:hover .header {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+  }
+  
+  .counterCard:hover .counterCard .header .title {
+    padding: 0;
+  }
+  
+  .counterCard .content {
+    display: block;
+    /* text-align: justify; */
+    color: #212121;
+    margin: 0 18px;
+  }
+  
+  .counterCard .content p {
+    transition: all .5s;
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  
+
+  .counterCard .content .btn-link{
+    color: var(--link-color);
+    cursor: pointer;
+    transition: all .5s;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .counterCard .content .btn-link:hover {
+    border-bottom: 1px solid var(--link-color);
+  }

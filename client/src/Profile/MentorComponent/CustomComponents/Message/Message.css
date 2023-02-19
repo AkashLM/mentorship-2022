@@ -1,0 +1,75 @@
+.message-card{
+    padding: 20px;
+    margin-top: 150px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 4px 2px gray;
+}
+
+.quickmessage{
+    font-size: 3rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .message-card{
+      margin-left: 100px;
+    }
+}
+
+.send-btn{
+    background: var(--button-color);
+    color: var(--white-font);
+    margin: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.8rem;
+    outline: none;
+    border-radius: 5px;
+    opacity: 0.9;
+}
+
+.cancel-btn{
+    background: none;
+    color: var(--red-font);
+    margin: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.8rem;
+    outline: solid 1px var(--red-button);
+    border-radius: 5px;
+    opacity: 0.9;
+}
+.cancel-btn:hover{
+    background: var(--red-button);
+    color: var(--white-font);
+    transition: 5ms;
+}
+
+
+.modal-body h5{
+    font-size: 2rem;
+}
+
+.modal-body h6{
+    font-size: 1.3rem;
+    color: var(--red-font);
+}
+.Map-Container{
+    padding: 20px;
+    margin-top: 150px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 4px 2px gray;
+    height:300px;
+    width: 600px;
+}
