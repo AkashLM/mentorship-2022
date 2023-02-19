@@ -59,7 +59,7 @@ app.use(cookieParser());
 
 //Environmental file Configuration
 dotenv.config({
-	path: './config.env'
+	path: './.env'
 });
 
 const { PORT } = process.env;
