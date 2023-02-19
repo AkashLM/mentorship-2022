@@ -59,7 +59,7 @@ app.use(cookieParser());
 
 //Environmental file Configuration
 dotenv.config({
-	path: './config.env'
+	path: './.env'
 });
 
 const { PORT } = process.env;
@@ -103,12 +103,6 @@ try {
 	app.use('/api/v1/PermissionGrouped', Router36);
 
 	//Error Handling Middleware
-	app.all('*', (req, res) => {
-		res.status(404).json({
-			status: '404 Error',
-			message: 'Page not found'
-		});
-	});
 
 	app.use((Error, req, res, next) => {
 		res.status(500).json({
