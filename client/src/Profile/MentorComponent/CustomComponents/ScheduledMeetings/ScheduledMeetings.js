@@ -87,7 +87,7 @@ function ScheduledMeetings(Props) {
                             <div class="customTable-content">
                               <div class="customTable-header">
                                 <div class="name">
-                                  Title{" "}
+                                  Title:{" "}
                                   {ArrayObj.TopicName ? (
                                     ArrayObj.TopicName
                                   ) : (
@@ -191,7 +191,7 @@ function ScheduledMeetings(Props) {
                             <div class="customTable-content">
                               <div class="customTable-header">
                                 <div class="name">
-                                  Title{" "}
+                                  Title:{" "}
                                   {ArrayObj.TopicName ? (
                                     ArrayObj.TopicName
                                   ) : (

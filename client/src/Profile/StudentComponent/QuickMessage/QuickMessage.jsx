@@ -12,8 +12,13 @@ import noti from "./push-notification.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import DateConverter from "../../../HelpingFunctions/DateConverter";
+import LogoutLoader from "../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../HelpingFunctions/Loader";
+import Snackbar from "@mui/material/Snackbar";
+import { RxCross2 } from "react-icons/rx";
 
-const QuickMessage = ({ studentData }) => {
+const QuickMessage = ({ studentData }, Props) => {
+  const { refresher, setRefresher } = Props;
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   const [Messagedata, setPMessagedata] = useState();
@@ -23,7 +28,20 @@ const QuickMessage = ({ studentData }) => {
   const [refresh, setRefresh] = useState(false);
 
   // console.log("studentData", studentData);
-
+  const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
+  const handleClose = () => {
+   
+    setOpen(false);
+  };
+   
+  const action = (
+  
+      <button onClick={handleClose} >
+       <RxCross2/>
+      </button>
+  );
   const handelMessage = async () => {
     const PendingData = await axios.post(
       `${BASEURL}/ViewMessage`,
@@ -68,6 +86,9 @@ const QuickMessage = ({ studentData }) => {
       setMsgDesc("");
       setMsgTitle("");
       setRefresh(!refresh);
+      setOpen(true);
+      setSnackbarMsg("Message Sent")
+      setSnackbarClassName("valid")
     }
     setLoading(true);
     setLoading(false);
@@ -79,10 +100,27 @@ const QuickMessage = ({ studentData }) => {
   return (
     <>
       {loading ? (
-        <>Loading</>
+         <>
+         <div><CircularColor/><LogoutLoader refresher={refresher}
+         setRefresher={setRefresher}/></div>
+     </>
       ) : (
         <>
           {" "}
+          <Snackbar className={snackbarClassName} 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
           <h2 className="pageHeading text-center ">Quick Notifications</h2>
           <div className="notificationparent">
             {Messagedata &&

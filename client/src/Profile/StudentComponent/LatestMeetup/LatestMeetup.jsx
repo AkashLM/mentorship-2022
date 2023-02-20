@@ -7,9 +7,12 @@ import Cookies from "universal-cookie";
 import Button from "@mui/material/Button";
 import Meetingimg from "./meetingimg.png";
 import DateConverter from "../../../HelpingFunctions/DateConverter"
+import LogoutLoader from "../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../HelpingFunctions/Loader";
 
 
 const LatestMeetup = (Props) => {
+  const { refresher, setRefresher } = Props;
   const { studentData } = Props;
   const [allMeeting, setAllMeeting] = useState([]);
   const [currentMeetings, setCurrentMeetings] = useState([]);
@@ -60,11 +63,62 @@ const LatestMeetup = (Props) => {
   return (
     <>
       {loading ? (
-        "Loading"
+        <>
+         <div><CircularColor/><LogoutLoader refresher={refresher}
+        setRefresher={setRefresher}/></div>
+        </>
       ) : (
         <>
+        
           {" "}
-          <div className="container">
+          <div className="scheduled-center">
+            <div className="xx">
+              <h2 className="pageHeading text-center ">Upcoming Meetings</h2>
+            </div>
+            <div class="customTable-container">
+              <div class="customTable-content">
+                <div class="customTables-section ">
+                  {scheduledMeetings?.map((ArrayObj, index) =>{
+                    // console.log("jjjjjj",ArrayObj);
+                    return (
+                      <>
+                        <div class="customTables" key={index}>
+                          <div class="customTable-box">
+                            <div class="customTable-content">
+                              <div class="customTable-header">
+                                <div class="name">
+                                  Title: {" "}
+                                  {ArrayObj.TopicName ? (
+                                    ArrayObj.TopicName
+                                  ) : (
+                                    <>Error Extracting Value</>
+                                  )}
+                                </div>
+
+                                <p>{ArrayObj.GroupName}&nbsp;~&nbsp;{ArrayObj.MentorName}</p>
+                              </div>
+                              <p class="customTable-line">
+                                <b>Description:</b> {ArrayObj.Description}
+                              </p>
+                              <p class="customTable-line">
+                                <b>Venue:</b> {ArrayObj.Venue}
+                              </p>
+
+                              <p class="customTable-line time">
+                                <b>Date & Time:</b> {DateConverter(ArrayObj.Date, "Date" )} | {ArrayObj.Time}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          {/* <div className="container">
             <div className="child-container">
               <h3 className="text-center pageHeading">Latest Meetup</h3>
               {scheduledMeetings?.map((ArrayObj, index) => {
@@ -130,7 +184,7 @@ const LatestMeetup = (Props) => {
                               {" "}
                               <span className="card-highlight">Time:- </span>
                            {ArrayObj.Time} 
-                           {/* {DateConverter(ArrayObj.Time, "Time" )} */}
+                          
                             </div>
                           </div>
                         </div>
@@ -148,7 +202,7 @@ const LatestMeetup = (Props) => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
           {/*  */}
           {/* <div className="card-whole" key={index}>
             <div className="card-one">

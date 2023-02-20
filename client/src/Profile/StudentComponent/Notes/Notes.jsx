@@ -14,8 +14,13 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import StudyMaterialHeaderImg from "../../../assets/notes1.svg";
 import DateConverter from "../../../HelpingFunctions/DateConverter";
+import LogoutLoader from "../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../HelpingFunctions/Loader";
+import Snackbar from "@mui/material/Snackbar";
+import { RxCross2 } from "react-icons/rx";
 
 export default function Notes(Props) {
+  const { refresher, setRefresher } = Props;
   const { studentData, noteSelect, setNoteSelect } = Props;
   const Coordinator_Status = studentData.data.data.Coordinator;
   const [loading, setLoading] = useState(true);
@@ -27,6 +32,20 @@ export default function Notes(Props) {
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   //
+   // for snackBar
+   const [open, setOpen] = useState(false);
+   const [snackbarMsg, setSnackbarMsg] = useState();
+   const [snackbarClassName, setSnackbarClassName] = useState();
+   const handleClose = () => {
+    
+     setOpen(false);
+   };
+    
+   const action = (
+     <button onClick={handleClose}>
+       <RxCross2 />
+     </button>
+   );
   //
   const date = new Date();
   let day = date.getDate();
@@ -75,6 +94,9 @@ export default function Notes(Props) {
       console.log("8888888", UserData);
       setTopicName("");
       setDesc("");
+      setOpen(true);
+      setSnackbarMsg("Note Uploaded")
+      setSnackbarClassName("valid")
     }
   };
 
@@ -84,9 +106,26 @@ export default function Notes(Props) {
   return (
     <>
       {loading ? (
-        <> Loading</>
+         <>
+         <div><CircularColor/><LogoutLoader refresher={refresher}
+         setRefresher={setRefresher}/></div>
+         </>
       ) : (
         <>
+         <Snackbar className={snackbarClassName} 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
           <h2 className="pageHeading text-center ">
             Group
             <span style={{ color: "blue" }}>

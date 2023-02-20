@@ -23,14 +23,18 @@ function AssignmentForm(Props) {
   //
   // for snackBar
   const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
   const handleClose = () => {
+   
     setOpen(false);
   };
-
+   
   const action = (
-    <button onClick={handleClose}>
-      <RxCross2 />
-    </button>
+  
+      <button onClick={handleClose} >
+       <RxCross2/>
+      </button>
   );
 
   const handleUpload = async () => {
@@ -53,12 +57,28 @@ function AssignmentForm(Props) {
     if (UserData) {
       console.log("7777", UserData);
       setOpen(true);
+      setSnackbarMsg("Assignment Submited Successfully")
+      setSnackbarClassName("valid")
       setDLink("");
     }
   };
   return (
     <>
       <div className="container">
+      <Snackbar className={snackbarClassName} 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
         <div className="studymaterial-card">
           <div className="row">
             <h4 className="text-center pageHeading">Assignment Form</h4>

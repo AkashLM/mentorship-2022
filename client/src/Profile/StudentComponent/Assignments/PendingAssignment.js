@@ -8,8 +8,12 @@ import Cookies from "universal-cookie";
 import DateConverter from "../../../HelpingFunctions/DateConverter";
 import Snackbar from "@mui/material/Snackbar";
 import { RxCross2 } from "react-icons/rx";
+import LogoutLoader from "../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../HelpingFunctions/Loader";
+
 
 function Assignments(Props) {
+  const { refresher, setRefresher } = Props;
   const { studentData, setUploadSelector } = Props;
   console.log(studentData.data.data.Coordinator);
   const Coordinator_Status = studentData.data.data.Coordinator;
@@ -21,6 +25,8 @@ function Assignments(Props) {
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   //
+  
+  //
   const date = new Date();
   let day = date.getDate();
   let month = date.getMonth() + 1;
@@ -29,10 +35,13 @@ function Assignments(Props) {
   //
   // for snackBar
   const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
   const handleClose = () => {
+   
     setOpen(false);
   };
-
+   
   const action = (
     <button onClick={handleClose}>
       <RxCross2 />
@@ -62,6 +71,8 @@ function Assignments(Props) {
       // event.preventDefault();
       console.log("8888888", UserData);
       setOpen(true);
+      setSnackbarMsg("Submission Request Created")
+      setSnackbarClassName("valid")
     }
   };
   //
@@ -90,11 +101,28 @@ function Assignments(Props) {
   return (
     <>
       {loading ? (
-        <>Loading</>
+        <>
+        <div><CircularColor/><LogoutLoader refresher={refresher}
+        setRefresher={setRefresher}/></div>
+        </>
       ) : (
         <>
           {" "}
           <div>
+          <Snackbar className={snackbarClassName} 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
             <div className="container">
               <h2 className="pageHeading text-center ">Pending Assignment</h2>
               <div className="card mt-4 p-4">
@@ -130,8 +158,9 @@ function Assignments(Props) {
                               <button
                                 className="btn btn-primary"
                                 m
-                                onClick={() => {
+                                onSubmit={() => {
                                   setUploadSelector(item);
+                                  
                                 }}
                               >
                                 SUBMIT
@@ -233,19 +262,7 @@ function Assignments(Props) {
                           Submission
                         </button>
                       </form>
-                      <Snackbar
-                        className="valid"
-                        sx={{ width: "310px" }}
-                        open={open}
-                        autoHideDuration={5000}
-                        onClose={handleClose}
-                        action={action}
-                        message="Assigment Submission Created"
-                        anchorOrigin={{
-                          vertical: "Bottom",
-                          horizontal: "Left",
-                        }}
-                      />
+                    
                     </div>
                   </div>
                 </div>

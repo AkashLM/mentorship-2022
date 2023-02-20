@@ -3,7 +3,8 @@ import "./GroupDetails.css";
 import mentorpic from "./mentor.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
-
+import LogoutLoader from "../../../HelpingFunctions/LogoutLoader";
+import CircularColor from "../../../HelpingFunctions/Loader";
 function createData(name, organization, mobile, email) {
   return { name, organization, mobile, email };
 }
@@ -58,8 +59,9 @@ const rows = [
     "x@x.x"
   ),
 ];
-
-export default function BasicTable({ studentData }) {
+// function BasicTable(Props) {
+export default function BasicTable({ studentData }, Props) {
+  const { refresher, setRefresher } = Props;
   const [GroupDataStudent, setGroupDataStudent] = useState([]);
   const [GroupDataMentor, setGroupDataMentor] = useState([]);
   const [linkedIn, setLinkedIn] = useState("");
@@ -99,7 +101,10 @@ export default function BasicTable({ studentData }) {
   return (
     <>
       {loading ? (
-        <>Loading</>
+         <>
+         <div><CircularColor/><LogoutLoader refresher={refresher}
+         setRefresher={setRefresher}/></div>
+     </>
       ) : (
         <>
           <div className="detailsContainer">
