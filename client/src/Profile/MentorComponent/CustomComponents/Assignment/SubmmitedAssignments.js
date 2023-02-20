@@ -75,6 +75,7 @@ function Assignments(Props) {
           },
         }
       );
+      // snackbar
     }
   };
 
@@ -214,7 +215,7 @@ function Assignments(Props) {
                           <td scope="row">{index + 1}</td>
                           <td>{item.Student_Name}</td>
                           <td>{item.Topic_Name}</td>
-                          <td>{item.Upload_Date}</td>
+                          <td>{DateConverter(item.Upload_Date, "Date")}</td>
                           <td>{DateConverter(item.ApprovedDate, "Date")}</td>
                           <td>
                             <a href={`${item.Link}`} target="_blank">
