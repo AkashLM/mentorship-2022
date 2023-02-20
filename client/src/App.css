@@ -137,7 +137,16 @@ body {
   }
 }
 
-
+.invalid .MuiSnackbarContent-root{
+  Background-color: red !important;
+}
+.default .MuiSnackbarContent-root{
+  /* Background-color: ; */
+}
 .valid .MuiSnackbarContent-root{
   Background-color: #4BB543 !important;
+}
+
+.css-1kr9x0n-MuiSnackbarContent-action{
+  padding-left: 0px !important;
 }

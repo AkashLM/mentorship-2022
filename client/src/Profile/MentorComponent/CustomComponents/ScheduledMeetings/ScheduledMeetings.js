@@ -75,8 +75,48 @@ function ScheduledMeetings(Props) {
             <div className="xx">
               <h2 className="pageHeading text-center ">Upcoming Meetings</h2>
             </div>
+            <div class="customTable-container">
+              <div class="customTable-content">
+                <div class="customTables-section ">
+                  {scheduledMeetings?.map((ArrayObj, index) =>{
+                    // console.log("jjjjjj",ArrayObj);
+                    return (
+                      <>
+                        <div class="customTables" key={index}>
+                          <div class="customTable-box">
+                            <div class="customTable-content">
+                              <div class="customTable-header">
+                                <div class="name">
+                                  Title{" "}
+                                  {ArrayObj.TopicName ? (
+                                    ArrayObj.TopicName
+                                  ) : (
+                                    <>Error Extracting Value</>
+                                  )}
+                                </div>
 
-            <div className="table-wrapper">
+                                <p>{ArrayObj.GroupName}&nbsp;~&nbsp;{ArrayObj.MentorName}</p>
+                              </div>
+                              <p class="customTable-line">
+                                <b>Description:</b> {ArrayObj.Description}
+                              </p>
+                              <p class="customTable-line">
+                                <b>Venue:</b> {ArrayObj.Venue}
+                              </p>
+
+                              <p class="customTable-line time">
+                                <b>Date & Time:</b> {DateConverter(ArrayObj.Date, "Date" )} | {ArrayObj.Time}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            {/* <div className="table-wrapper">
               {scheduledMeetings?.map((ArrayObj, index) => {
                 return (
                   <div className="card-whole" key={index}>
@@ -132,7 +172,7 @@ function ScheduledMeetings(Props) {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
 
           <div className="scheduled-center">
@@ -169,7 +209,7 @@ function ScheduledMeetings(Props) {
                               </p>
 
                               <p class="customTable-line time">
-                                <b>Date & Time:</b> {DateConverter(ArrayObj.Date, "Date" )} | {DateConverter(ArrayObj.Date, "Time" )}
+                                <b>Date & Time:</b> {DateConverter(ArrayObj.Date, "Date" )} |  {ArrayObj.Time}
                               </p>
                             </div>
                           </div>

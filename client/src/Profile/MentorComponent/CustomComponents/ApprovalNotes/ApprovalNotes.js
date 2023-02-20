@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import DateConverter from "../../../../HelpingFunctions/DateConverter";
+import { RxCross2 } from "react-icons/rx";
+import Snackbar from "@mui/material/Snackbar";
 
 const ApprovalNotes = (Props) => {
   const { typeOfUser, ViewNotesProp, setViewNotesProp,refresher,setRefresher, approvedNotes } = Props;
@@ -13,6 +15,20 @@ const ApprovalNotes = (Props) => {
   const selectValue = useRef("");
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
+  const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
+  const handleClose = () => {
+   
+    setOpen(false);
+  };
+  
+  const action = (
+  
+      <button onClick={handleClose} >
+       <RxCross2/>
+      </button>
+  );
   const DeleteNoteFunction = async (Note_Id) => {
     const deleteResponse = await axios.post(
       `${BASEURL}/DeleteNotes`,
@@ -53,6 +69,20 @@ const ApprovalNotes = (Props) => {
   return (
     <>
       <div>
+      <Snackbar className={snackbarClassName} 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
         <div className="container">
         <h2 className="pageHeading text-center ">Approved Notes</h2>
           <div className="card mt-4 p-4">
@@ -98,7 +128,9 @@ const ApprovalNotes = (Props) => {
                               setDeleteMsg(item);
                               DeleteNoteFunction(selectValue.current);
                               console.log("DeleteMsg", DeleteMsg);
-
+                              setOpen(true);
+                              setSnackbarMsg("Deleted Successfully")
+                              setSnackbarClassName("invalid")
                             }}
                           >
                             DELETE

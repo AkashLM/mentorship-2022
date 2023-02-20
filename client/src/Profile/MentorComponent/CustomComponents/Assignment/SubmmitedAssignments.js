@@ -22,6 +22,7 @@ function Assignments(Props) {
   const [refresh, setRefresh] = useState(false);
   const [open, setOpen] = useState(false);
   const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
   const handleClose = () => {
    
     setOpen(false);
@@ -54,6 +55,9 @@ function Assignments(Props) {
   };
 
   const ApprovedAssignmentFunction = async () => {
+    setOpen(true);
+    setSnackbarMsg("Click Again")
+    setSnackbarClassName("default")
     const ApprovedData = await axios.post(
       `${BASEURL}/AllowedAssignment`,
       {
@@ -67,6 +71,7 @@ function Assignments(Props) {
         },
       }
     );
+    
     if (ApprovedData) {
       setRefresh(!refresh);
       //Sending message
@@ -91,11 +96,15 @@ function Assignments(Props) {
       );
       setOpen(true);
       setSnackbarMsg("Assignment Approved Successfully")
+      setSnackbarClassName("valid")
 
     }
   };
 
   const RejectAssignmentFunction = async () => {
+    setOpen(true);
+    setSnackbarMsg("Click Again")
+    setSnackbarClassName("default")
     console.log("ApprovedAssignmentFunction", approvedFlag);
     const RejectedData = await axios.post(
       `${BASEURL}/AllowedAssignment`,
@@ -132,6 +141,9 @@ function Assignments(Props) {
                 },
               }
             );
+      setOpen(true);
+      setSnackbarMsg("Assignment Rejected")
+      setSnackbarClassName("invalid")
     }
   };
   
@@ -152,7 +164,7 @@ function Assignments(Props) {
       ) : (
         <>
           <div>
-          <Snackbar className="valid" 
+          <Snackbar className={snackbarClassName} 
               sx={{ width: "310px"}}
               open={open}
               autoHideDuration={5000}

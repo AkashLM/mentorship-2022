@@ -8,6 +8,9 @@ import Cookies from "universal-cookie";
 import DateConverter from "../../../../HelpingFunctions/DateConverter";
 import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
 import CircularColor from "../../../../HelpingFunctions/Loader";
+import { RxCross2 } from "react-icons/rx";
+import Snackbar from "@mui/material/Snackbar";
+
 
 function PendingNotes(Props) {
   
@@ -19,6 +22,20 @@ function PendingNotes(Props) {
   const allNotes = new Array();
   const [pendingNotes, setPendingNotes] = useState([]);
   const [approvedNotes, setApprovedNotes] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
+  const handleClose = () => {
+   
+    setOpen(false);
+  };
+  
+  const action = (
+  
+      <button onClick={handleClose} >
+       <RxCross2/>
+      </button>
+  );
 
   const ViewNoteResponse = async () => {
     const NotesData = await axios.post(
@@ -54,6 +71,9 @@ function PendingNotes(Props) {
   };
 
   const ApproveNoteFunction = async (Note_Id) => {
+    setOpen(true);
+    setSnackbarMsg("Click Again")
+    setSnackbarClassName("default")
     const ApprovalStatus = await axios.post(
       `${BASEURL}/AllowedNotes`,
       {
@@ -69,6 +89,9 @@ function PendingNotes(Props) {
     if (ApprovalStatus) {
       window.location.reload();
     }
+    setOpen(true);
+      setSnackbarMsg("Note Approved Successfully")
+      setSnackbarClassName("valid")
   };
 
   useEffect(() => {
@@ -88,6 +111,20 @@ function PendingNotes(Props) {
         <>
           {" "}
           <div>
+          <Snackbar className={snackbarClassName} 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
             <div className="container">
             <h2 className="pageHeading text-center ">Pending Notes</h2>
               <div className="card mt-4 p-4">
@@ -113,7 +150,7 @@ function PendingNotes(Props) {
                           <td>{item.Topic}</td>
                           <td>{item.Notes}</td>
                           <td>
-                            <a href={item.Notes}>
+                            <a target="_Blank" href={item.Notes}>
                               {" "}
                               <button
                                 className="btn btn-primary approval-btn"
