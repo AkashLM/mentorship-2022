@@ -5,6 +5,19 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const path = require('path');
 // const __dirname = path.resolve();
+
+//Setting Up CORS Policy
+var corsOptions = {
+	"origin": "*",
+	"methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+	"preflightContinue": false,
+	"optionsSuccessStatus": 204
+  }
+app.options('*', cors()) // preFlight
+app.use('*', cors(corsOptions), function (req, res, next){
+	next()
+})
+
 const {
 	Router1,
 	Router2,
@@ -45,12 +58,7 @@ const {
 
 } = require('./Routers/router.config');
 
-//Setting Up CORS Policy
-app.use(
-	cors({
-		origin: '*'
-	})
-);
+
 
 //Body Parsing Configuration
 app.use(express.json());

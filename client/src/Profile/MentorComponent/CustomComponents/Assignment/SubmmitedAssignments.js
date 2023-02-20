@@ -7,6 +7,8 @@ import Cookies from "universal-cookie";
 import DateConverter from "../../../../HelpingFunctions/DateConverter";
 import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
 import CircularColor from "../../../../HelpingFunctions/Loader";
+import Snackbar from "@mui/material/Snackbar";
+import { RxCross2 } from "react-icons/rx";
 
 function Assignments(Props) {
   const { refresher, setRefresher } = Props;
@@ -18,7 +20,19 @@ function Assignments(Props) {
   const [approvedAssignment, setApprovedAssignment] = useState([]);
   const [approvedFlag, setApprovedFlag] = useState({});
   const [refresh, setRefresh] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const handleClose = () => {
+   
+    setOpen(false);
+  };
+  
+  const action = (
+  
+      <button onClick={handleClose} >
+       <RxCross2/>
+      </button>
+  );
   const AssignmentDataFunction = async () => {
     const AssignmentData = await axios.post(
       `${BASEURL}/ViewPendingAssignmentByMentor`,
@@ -75,7 +89,9 @@ function Assignments(Props) {
           },
         }
       );
-      // snackbar
+      setOpen(true);
+      setSnackbarMsg("Assignment Approved Successfully")
+
     }
   };
 
@@ -105,7 +121,7 @@ function Assignments(Props) {
                 Res_Date: new Date(),
                 Res_Mentor_Name: approvedFlag.Mentor_Name,
                 Res_Description: `Hello, ${approvedFlag.Student_Name}, You had submitted your assignment on ${DateConverter(approvedFlag.Upload_Date, "Date")}.And your mentor ${approvedFlag.Mentor_Name
-                } has been rejected.May mentors want to more improvement in your assignment. Thank you.`,
+                } has been rejected. May mentor want more improvement in your assignment. Thank you.`,
                 Res_Group_Name: approvedFlag.Group_Name,
                 Res_Student_Name: approvedFlag.Student_Name,
                 Res_Message_Type: "Assignment_Status",
@@ -136,6 +152,20 @@ function Assignments(Props) {
       ) : (
         <>
           <div>
+          <Snackbar className="valid" 
+              sx={{ width: "310px"}}
+              open={open}
+              autoHideDuration={5000}
+              onClose={handleClose}
+              action={action}
+              message={snackbarMsg}
+              anchorOrigin={{
+                vertical: "Bottom",
+                horizontal: "Left",
+              }
+    
+            }
+            />
             <div className="container">
               <h3 className="text-center pageHeading">Pending Assignment</h3>
               <div className="card mt-4 p-4">
