@@ -80,6 +80,7 @@ function Assignments(Props) {
       `${BASEURL}/ViewAssigmentsByStudent`,
       {
         Res_Group_Name: studentData.data.data.Student_Group,
+        Res_Student_Name : studentData.data.data.Student_Name
       },
       {
         headers: {
@@ -92,6 +93,8 @@ function Assignments(Props) {
       setAdata(PendingData.data.data2);
       setLoading(false);
       console.log("77", Pdata);
+      console.log("77", Adata);
+
     }
   };
   useEffect(() => {
@@ -147,8 +150,8 @@ function Assignments(Props) {
                   </thead>
                   <tbody>
                     {Pdata.map((item, index) => {
-                      console.log("item", item.Approved);
-                      if (item.Approved === false) {
+                      console.log("item", item);
+                      if (item.Approved === true) {
                         return (
                           <tr>
                             <td scope="row">{index + 1}</td>
@@ -192,7 +195,7 @@ function Assignments(Props) {
                         Date Of Post
                       </th>
                       <th scope="col" className="description">
-                        Description
+                        Approved Date
                       </th>
                       <th scope="col" className="text-center">
                         Status
@@ -201,13 +204,14 @@ function Assignments(Props) {
                   </thead>
                   <tbody>
                     {Adata.map((item, index) => {
-                      console.log("item", item.Approved);
+                      console.log("Adata", Adata);
                       if (item.Approved === true) {
                         return (
                           <tr>
                             <td scope="row">{index + 1}</td>
                             <td>{item.Topic_Name}</td>
                             <td>{DateConverter(item.Upload_Date, "Date")}</td>
+                            <td>{DateConverter(item.ApprovedDate, "Date")}</td>
                             <td>
                             <a href={item.Link} target="_blank">
                                 <button

@@ -18,6 +18,14 @@ app.use('*', cors(corsOptions), function (req, res, next){
 	next()
 })
 
+//Setting Up CORS Policy
+// app.use(
+// 	cors({
+// 		origin: '*'
+// 	})
+// );
+
+
 const {
 	Router1,
 	Router2,
