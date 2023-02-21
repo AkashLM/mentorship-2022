@@ -5,14 +5,59 @@ import background from "./2.jpg";
 import { Link } from "react-router-dom";
 import Notification from "./Notification";
 
+// Mentor Profiles
+
+import AjayKavade from "../../../../assets/MentorProfileImages/AjayKavade.jpg";
+import AmodPanchhapurkar from "../../../../assets/MentorProfileImages/AmodPanchhapurkar.jpg";
+import AshfakShaikh from "../../../../assets/MentorProfileImages/AshfakShaikh.jpg";
+import HrishikeshDhande from "../../../../assets/MentorProfileImages/HrishikeshDhande.jpg";
+import JitendraSardesai from "../../../../assets/MentorProfileImages/JitendraSardesai.jpg";
+import KaustubhKulkarni from "../../../../assets/MentorProfileImages/KaustubhKulkarni.jpg";
+import KishoreKunjeer from "../../../../assets/MentorProfileImages/KishoreKunjeer.jpg";
+import KrishnatMolawade from "../../../../assets/MentorProfileImages/KrishnatMolawade.jpg";
+import NileshHonrao from "../../../../assets/MentorProfileImages/NileshHonrao.jpg";
+import NileshVartak from "../../../../assets/MentorProfileImages/NileshVartak.jpg";
+import PrashantDahibhate from "../../../../assets/MentorProfileImages/PrashantDahibhate.jpg";
+import RahulLale from "../../../../assets/MentorProfileImages/RahulLale.jpg";
+import SudhirPatil from "../../../../assets/MentorProfileImages/SudhirPatil.jpg";
+
 function Profile(props) {
   const { setEdit, mentorData, submissionStatus, setSubmissionStatus } = props;
   const [tNotes, setTNotes] = useState(0);
   const [pendingNotes, setpendingNotes] = useState(0);
   const [assignmentApproved, setassignmentApproved] = useState(0);
   const [assignmentsPending, setassignmentsPending] = useState(0);
+  const [customMentorPic, setCustomeMentorPic]= useState("");
+
   const DefaultImage = process.env.REACT_APP_DEFAULT_IMAGE;
   const CounterAssignmentStatus = () => {
+    if (mentorData.Mentor_Name==="Ajay Arun Kavade"){
+      setCustomeMentorPic(AjayKavade);
+    }else   if (mentorData.Mentor_Name==="Amod Pradeep Panchhapurkar"){
+      setCustomeMentorPic(AmodPanchhapurkar)
+    }else   if (mentorData.Mentor_Name==="Ashfak Shaikh"){
+      setCustomeMentorPic(AshfakShaikh)
+    } else   if (mentorData.Mentor_Name==="Hrishikesh Jayant Dhande"){
+      setCustomeMentorPic(HrishikeshDhande)
+    } else   if (mentorData.Mentor_Name==="Krishnat Narayan Molawade"){
+      setCustomeMentorPic(KrishnatMolawade);
+    }else   if (mentorData.Mentor_Name==="Kishore Kunjeer"){
+      setCustomeMentorPic(KishoreKunjeer)
+    }else   if (mentorData.Mentor_Name==="Sudhir Patil"){
+      setCustomeMentorPic(SudhirPatil)
+    }else   if (mentorData.Mentor_Name==="Kaustubh Kulkarni"){
+      setCustomeMentorPic(KaustubhKulkarni)
+    }else   if (mentorData.Mentor_Name==="Jitendra Sardesai"){
+      setCustomeMentorPic(JitendraSardesai)
+    }else   if (mentorData.Mentor_Name==="Prashant V Dahibhate"){
+      setCustomeMentorPic(PrashantDahibhate)
+    }else   if (mentorData.Mentor_Name==="Nilesh Vartak"){
+      setCustomeMentorPic(NileshVartak)
+    }else   if (mentorData.Mentor_Name==="Rahul D Lale"){
+      setCustomeMentorPic(RahulLale)
+    }else   if (mentorData.Mentor_Name==="Nilesh Guruling Honrao"){
+      setCustomeMentorPic(NileshHonrao);
+    }
     let CountArray1 = submissionStatus.filter((obj) => obj.Approved === false);
     setpendingNotes(CountArray1.length);
     let CountArray2 = submissionStatus.filter((obj) => obj.Approved === true);
@@ -35,7 +80,7 @@ function Profile(props) {
                 <div className="profile rounded-full">
                   <img
                     className="rounded-full"
-                    src={mentorData.Mentor_ProfileLink || DefaultImage}
+                    src={customMentorPic|| DefaultImage}
                     alt="Mentor-pic"
                   />
                 </div>
