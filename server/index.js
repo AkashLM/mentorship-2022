@@ -92,13 +92,13 @@ try {
 	app.use('/api/v1/GetUser', Router17);
 	app.use('/api/v1/DeleteNotes', Router18);
 	app.use('/api/v1/ViewOneNote', Router19);
-	app.use('/api/v1/UploadAssignmentByCords', Router20);
+	// app.use('/api/v1/UploadAssignmentByCords', Router20);
 	app.use('/api/v1/DownloadAssignment', Router21);
 	app.use('/api/v1/AddCollections', Router22);
 	app.use('/api/v1/ViewCollections', Router23);
 	app.use('/api/v1/UploadAssignmentByCords', Router24);
 	app.use('/api/v1/UploadAssignmentByStudent', Router25);
-	app.use('/api/v1/ViewAssigments', Router26);
+	app.use('/api/v1/ViewAssigmentsByStudent', Router26);
 	app.use('/api/v1/DeleteAssignments', Router27);
 	app.use('/api/v1/ViewGroupList', Router28);
 	app.use('/api/v1/ViewPendingAssignmentByMentor', Router29);
