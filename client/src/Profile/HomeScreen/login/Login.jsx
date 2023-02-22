@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FieldsLogin from "./FieldsLogin";
+import FieldsLogin from "./SlidingLogin";
 import FieldsSignUp from "../signup/FieldsSignUp";
 import FieldsForgotPass from "../forgotpassword/FieldsForgotPass";
 import Navbar from "./Navbar";
@@ -20,12 +20,12 @@ function Login(props) {
           mentorLog={mentorLog}
         />
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-center">
+      <div className="flex flex-col lg:flex-row items-center justify-center Login-Container">
         {fPsss ? (
           <>
             {" "}
-            <div className="w-{100%} lg:w-2/5 Login-Container">
-              <FieldsForgotPass
+            <div >
+              <FieldsLogin
                 studentLog={studentLog}
                 adminLog={adminLog}
                 mentorLog={mentorLog}
@@ -41,7 +41,7 @@ function Login(props) {
             {logType ? (
               <>
                 {" "}
-                <div className="w-{100%} lg:w-2/5 Login-Container">
+                <div >
                   <FieldsLogin
                     studentLog={studentLog}
                     adminLog={adminLog}
@@ -56,8 +56,8 @@ function Login(props) {
             ) : (
               <>
                 {" "}
-                <div className="w-{100%} lg:w-2/5 Login-Container">
-                  <FieldsSignUp
+                <div >
+                  <FieldsLogin
                     studentLog={studentLog}
                     adminLog={adminLog}
                     mentorLog={mentorLog}
@@ -71,9 +71,7 @@ function Login(props) {
           </>
         )}
 
-        <div className="flex justify-center items-center">
-          <img src={Conference} alt="img" className=" w-{100%} lg:mt-12" />
-        </div>
+       
       </div>
     </div>
   );

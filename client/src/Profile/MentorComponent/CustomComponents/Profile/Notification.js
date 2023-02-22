@@ -3,6 +3,8 @@ import "./Notification.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import DateConverter from "../../../../HelpingFunctions/DateConverter"
+import Snackbar from "@mui/material/Snackbar";
+import { RxCross2 } from "react-icons/rx";
 
 function Notification(Props) {
   const { mentorData } = Props;
@@ -13,8 +15,25 @@ function Notification(Props) {
   //
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
+
+    // for Snackbar
+    const [open, setOpen] = useState(false);
+    const [snackbarMsg, setSnackbarMsg] = useState();
+    const [snackbarClass, setSnackbarClass] = useState();
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
+    const action = (
+      <button onClick={handleClose}>
+        <RxCross2 />
+      </button>
+    );
   //
   const CreateMessageDataFunction = async () => {
+    setOpen(true);
+    setSnackbarMsg("Please Wait ...")
+    setSnackbarClass("default")
     const MessageData = await axios.post(
       `${BASEURL}/AddMessage`,
       {
@@ -35,6 +54,9 @@ function Notification(Props) {
     if (MessageData) {
       setMessage("");
       setRefresh(!refresh);
+      setSnackbarClass("valid")
+      setOpen(true);
+      setSnackbarMsg("Message Sent")
     }
   };
 
@@ -75,7 +97,7 @@ function Notification(Props) {
   }, [loading,refresh]);
   return (
     <div className="notificationP">
-        <h2>Updates</h2>
+        <h2 className="notiUpdate">Updates</h2>
       <div className="notificationWrapper">
         {Messagedata.map((Item) => {
           return (
@@ -123,6 +145,19 @@ function Notification(Props) {
               ></path>
             </svg>
           </button>
+          <Snackbar
+          className={snackbarClass}
+          sx={{ width: "310px" }}
+          open={open}
+          autoHideDuration={5000}
+          onClose={handleClose}
+          action={action}
+          message={snackbarMsg}
+          anchorOrigin={{
+            vertical: "Bottom",
+            horizontal: "Left",
+          }}
+        />
         </div>
       </div>
     </div>

@@ -28,6 +28,11 @@ function App() {
           <div className="overlayLogo"></div>
           <div className="overlayText"> Mobile view in not supported yet, <br/> Please use Desktop.  </div>
         </div>
+
+        <div className="keystoneLogo">
+          <div className="backgroundLogo"></div>
+        </div>
+      
         {isLogged ? (
           <WithLogin refresher={refresher} setRefresher={setRefresher}/>
         ) : (
