@@ -7,17 +7,17 @@ function StudentProfile({ studentData }) {
   const [loading, setLoading] = useState(true);
   const [edit, setEdit] = useState(false);
   const [initialValues, setInitialvalues] = useState({
-    name: " Rahat Sayyed",
-    position: "web developer",
-    organizationname: "Keystone School of Engineering",
-    qualification: "B.Tech",
-    groupname: "Group Firve",
-    email: "rahat@gmail.x",
-    mobile: "1234567897",
-    linkedin: "www.linkedin.com/in/youreachedrahat/",
-    experience: "10",
+    name: "None",
+    position: "None",
+    organizationname: "None",
+    qualification: "None",
+    groupname: "None",
+    email: "None",
+    mobile: "None",
+    linkedin: "None",
+    experience: "None",
     about:
-      " started my journey for WEB3.0 after relajadks blah blah blah blah bleh bleh and it worked",
+      " None",
   });
   let ValueSetterFunction;
   console.log("studentData------------>",studentData);

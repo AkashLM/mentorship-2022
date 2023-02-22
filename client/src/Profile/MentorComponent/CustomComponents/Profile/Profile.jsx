@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import mentorpic from "./mentor.png";
 import defaultMentor from "../../../../assets/defaultmentorlogo.png";
 import background from "./2.jpg";
 import { Link } from "react-router-dom";
 import Notification from "./Notification";
 
 // Mentor Profiles
-
 import AjayKavade from "../../../../assets/MentorProfileImages/AjayKavade.jpg";
 import AmodPanchhapurkar from "../../../../assets/MentorProfileImages/AmodPanchhapurkar.jpg";
 import AshfakShaikh from "../../../../assets/MentorProfileImages/AshfakShaikh.jpg";
@@ -34,6 +32,7 @@ function Profile(props) {
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
 
+  //Mentor Profile Conditionals
   const DefaultImage = process.env.REACT_APP_DEFAULT_IMAGE;
   const CounterAssignmentStatus = async() => {
     if (mentorData.Mentor_Name==="Ajay Arun Kavade"){
@@ -62,6 +61,8 @@ function Profile(props) {
       setCustomeMentorPic(RahulLale)
     }else   if (mentorData.Mentor_Name==="Nilesh Guruling Honrao"){
       setCustomeMentorPic(NileshHonrao);
+    }else{
+      setCustomeMentorPic(defaultMentor);
     }
     //Calculate the notes counter
     let CountArray1 = submissionStatus.filter((obj) => obj.Approved === false);

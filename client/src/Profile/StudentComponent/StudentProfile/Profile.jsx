@@ -47,7 +47,7 @@ function Profile(props) {
                 <div className="Organization">
                   {/* Organization: */}
                   <div className=" ">
-                    {initialValues.organizationname
+                    Organization : {initialValues.organizationname
                       ? initialValues.organizationname
                       : "None"}
                   </div>
@@ -55,12 +55,12 @@ function Profile(props) {
               </div>
               <div className=" personalProfile">
                 <div className=" ">
-                  {initialValues.position ? initialValues.position : "None"}
+                Position : {initialValues.position ? initialValues.position : "None"}
                 </div>
                 <div className="">
                   {/* Qualification: */}
-                  <span className="">
-                    {initialValues.qualification
+                  <span className="" >
+                  Qualification : {initialValues.qualification
                       ? initialValues.qualification
                       : "None"}
                   </span>
