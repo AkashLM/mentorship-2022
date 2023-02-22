@@ -34,6 +34,21 @@ body {
   display: none;
 }
 
+.keystoneLogo{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.backgroundLogo{
+  background-image: url("./assets/Keystone_logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+}
+
 .pageHeading {
   margin: 2rem auto;
   text-align: center;
@@ -129,7 +144,7 @@ body {
     top: 10px;
     left: 10px;
     background-image: url("./assets/Keystone_logo.png");
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
     width: 150px;

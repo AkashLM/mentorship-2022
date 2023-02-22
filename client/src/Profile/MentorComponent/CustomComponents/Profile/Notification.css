@@ -3,10 +3,13 @@
 
 .notificationP h2{
     font-size: 2rem;
-    margin: 1rem auto;
+    margin: 1rem 1rem;
     font-weight: 600;
     font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
 }
+/* .notiUpdate h2{
+  margin-left: 1rem;
+} */
 .notificationP {
   display: flex;
   flex-direction: column;
@@ -50,7 +53,7 @@
   height: 85%;
   overflow-y: scroll;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
   .notificationContainer {
