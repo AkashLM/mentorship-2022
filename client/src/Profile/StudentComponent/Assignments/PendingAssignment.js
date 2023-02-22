@@ -11,7 +11,6 @@ import { RxCross2 } from "react-icons/rx";
 import LogoutLoader from "../../../HelpingFunctions/LogoutLoader";
 import CircularColor from "../../../HelpingFunctions/Loader";
 
-
 function Assignments(Props) {
   const { refresher, setRefresher } = Props;
   const { studentData, setUploadSelector } = Props;
@@ -21,11 +20,12 @@ function Assignments(Props) {
   const [topicName, setTopicName] = useState("");
   const [Desc, setDesc] = useState("");
   const [Pdata, setPdata] = useState([]);
+  const [Adata, setAdata] = useState([]);
   //
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   //
-  
+
   //
   const date = new Date();
   let day = date.getDate();
@@ -38,10 +38,9 @@ function Assignments(Props) {
   const [snackbarMsg, setSnackbarMsg] = useState();
   const [snackbarClassName, setSnackbarClassName] = useState();
   const handleClose = () => {
-   
     setOpen(false);
   };
-   
+
   const action = (
     <button onClick={handleClose}>
       <RxCross2 />
@@ -71,16 +70,17 @@ function Assignments(Props) {
       // event.preventDefault();
       console.log("8888888", UserData);
       setOpen(true);
-      setSnackbarMsg("Submission Request Created")
-      setSnackbarClassName("valid")
+      setSnackbarMsg("Submission Request Created");
+      setSnackbarClassName("valid");
     }
   };
   //
   const handelpending = async () => {
     const PendingData = await axios.post(
-      `${BASEURL}/ViewAssigments`,
+      `${BASEURL}/ViewAssigmentsByStudent`,
       {
         Res_Group_Name: studentData.data.data.Student_Group,
+        Res_Student_Name : studentData.data.data.Student_Name
       },
       {
         headers: {
@@ -90,8 +90,11 @@ function Assignments(Props) {
     );
     if (PendingData) {
       setPdata(PendingData.data.data);
+      setAdata(PendingData.data.data2);
       setLoading(false);
       console.log("77", Pdata);
+      console.log("77", Adata);
+
     }
   };
   useEffect(() => {
@@ -102,15 +105,18 @@ function Assignments(Props) {
     <>
       {loading ? (
         <>
-        <div><CircularColor/><LogoutLoader refresher={refresher}
-        setRefresher={setRefresher}/></div>
+          <div>
+            <CircularColor />
+            <LogoutLoader refresher={refresher} setRefresher={setRefresher} />
+          </div>
         </>
       ) : (
         <>
           {" "}
           <div>
-          <Snackbar className={snackbarClassName} 
-              sx={{ width: "310px"}}
+            <Snackbar
+              className={snackbarClassName}
+              sx={{ width: "310px" }}
               open={open}
               autoHideDuration={5000}
               onClose={handleClose}
@@ -119,9 +125,7 @@ function Assignments(Props) {
               anchorOrigin={{
                 vertical: "Bottom",
                 horizontal: "Left",
-              }
-    
-            }
+              }}
             />
             <div className="container">
               <h2 className="pageHeading text-center ">Pending Assignment</h2>
@@ -147,33 +151,86 @@ function Assignments(Props) {
                   <tbody>
                     {Pdata.map((item, index) => {
                       console.log("item", item);
-                      return (
-                        <tr>
-                          <td scope="row">{index + 1}</td>
-                          <td>{item.Topic_Name}</td>
-                          <td>{DateConverter(item.Upload_Date, "Date")}</td>
-                          <td>{item.Desc}</td>
-                          <td>
-                            <Link to="/assignmentsubmission">
-                              <button
-                                className="btn btn-primary"
-                                m
-                                onSubmit={() => {
-                                  setUploadSelector(item);
-                                  
-                                }}
-                              >
-                                SUBMIT
-                              </button>
-                            </Link>
-                          </td>
-                        </tr>
-                      );
+                      if (item.Approved === true) {
+                        return (
+                          <tr>
+                            <td scope="row">{index + 1}</td>
+                            <td>{item.Topic_Name}</td>
+                            <td>{DateConverter(item.Upload_Date, "Date")}</td>
+                            <td>{item.Desc}</td>
+                            <td>
+                              <Link to="/assignmentsubmission">
+                                <button
+                                  className="btn btn-primary"
+                                  m
+                                  onClick={() => {
+                                    setUploadSelector(item);
+                                  }}
+                                >
+                                  SUBMIT
+                                </button>
+                              </Link>
+                            </td>
+                          </tr>
+                        );
+                      }
                     })}
                   </tbody>
                 </table>
               </div>
             </div>
+
+            {/*  */}
+            <div className="container">
+              <h2 className="pageHeading text-center ">Approved Assignments</h2>
+              <div className="card mt-4 p-4">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Sr.no</th>
+                      <th scope="col" className="topicname">
+                        Topic Name
+                      </th>
+                      <th scope="col" className="date">
+                        Date Of Post
+                      </th>
+                      <th scope="col" className="description">
+                        Approved Date
+                      </th>
+                      <th scope="col" className="text-center">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Adata.map((item, index) => {
+                      console.log("Adata", Adata);
+                      if (item.Approved === true) {
+                        return (
+                          <tr>
+                            <td scope="row">{index + 1}</td>
+                            <td>{item.Topic_Name}</td>
+                            <td>{DateConverter(item.Upload_Date, "Date")}</td>
+                            <td>{DateConverter(item.ApprovedDate, "Date")}</td>
+                            <td>
+                            <a href={item.Link} target="_blank">
+                                <button
+                                  className="btn btn-primary"
+                                  m
+                                >
+                                  VIEW
+                                </button>
+                                </a>
+                            </td>
+                          </tr>
+                        );
+                      }
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            {/*  */}
           </div>
           {/* for upload new assignments by coordinator */}
           <h2 className="pageHeading text-center ">Coordinator Section</h2>
@@ -262,7 +319,6 @@ function Assignments(Props) {
                           Submission
                         </button>
                       </form>
-                    
                     </div>
                   </div>
                 </div>

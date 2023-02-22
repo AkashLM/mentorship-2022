@@ -15,6 +15,7 @@ function AssignmentForm(Props) {
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   //
+  console.log("****",uploadSelector);
   const date = new Date();
   let day = date.getDate();
   let month = date.getMonth() + 1;

@@ -20,6 +20,9 @@ import NileshVartak from "../../../../assets/MentorProfileImages/NileshVartak.jp
 import PrashantDahibhate from "../../../../assets/MentorProfileImages/PrashantDahibhate.jpg";
 import RahulLale from "../../../../assets/MentorProfileImages/RahulLale.jpg";
 import SudhirPatil from "../../../../assets/MentorProfileImages/SudhirPatil.jpg";
+import axios from "axios";
+import Cookies from "universal-cookie";
+
 
 function Profile(props) {
   const { setEdit, mentorData, submissionStatus, setSubmissionStatus } = props;
@@ -28,9 +31,11 @@ function Profile(props) {
   const [assignmentApproved, setassignmentApproved] = useState(0);
   const [assignmentsPending, setassignmentsPending] = useState(0);
   const [customMentorPic, setCustomeMentorPic]= useState("");
+  const BASEURL = process.env.REACT_APP_SAMPLE;
+  const cookies = new Cookies();
 
   const DefaultImage = process.env.REACT_APP_DEFAULT_IMAGE;
-  const CounterAssignmentStatus = () => {
+  const CounterAssignmentStatus = async() => {
     if (mentorData.Mentor_Name==="Ajay Arun Kavade"){
       setCustomeMentorPic(AjayKavade);
     }else   if (mentorData.Mentor_Name==="Amod Pradeep Panchhapurkar"){
@@ -58,10 +63,29 @@ function Profile(props) {
     }else   if (mentorData.Mentor_Name==="Nilesh Guruling Honrao"){
       setCustomeMentorPic(NileshHonrao);
     }
+    //Calculate the notes counter
     let CountArray1 = submissionStatus.filter((obj) => obj.Approved === false);
     setpendingNotes(CountArray1.length);
     let CountArray2 = submissionStatus.filter((obj) => obj.Approved === true);
     setTNotes(CountArray2.length);
+
+    //Calculate assignments counter
+    const AssignmentData = await axios.post(
+      `${BASEURL}/ViewPendingAssignmentByMentor`,
+      {
+        Res_Group_Name: mentorData.Mentor_Group_Name,
+      },
+      {
+        headers: {
+          Authorization: cookies.get("KeyToken"),
+        },
+      }
+    );
+    if (AssignmentData) {
+      console.log("AssignmentData", AssignmentData);
+      setassignmentsPending(AssignmentData.data.data1.length);
+      setassignmentApproved(AssignmentData.data.data2.length);
+    }
   };
   console.log("88888", mentorData);
   useEffect(() => {

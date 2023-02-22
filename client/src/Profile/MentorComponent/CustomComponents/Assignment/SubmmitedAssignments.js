@@ -9,6 +9,7 @@ import LogoutLoader from "../../../../HelpingFunctions/LogoutLoader";
 import CircularColor from "../../../../HelpingFunctions/Loader";
 import Snackbar from "@mui/material/Snackbar";
 import { RxCross2 } from "react-icons/rx";
+// import FormDialog from "./RejectMsgDialog";
 
 function Assignments(Props) {
   const { refresher, setRefresher } = Props;
@@ -23,11 +24,13 @@ function Assignments(Props) {
   const [open, setOpen] = useState(false);
   const [snackbarMsg, setSnackbarMsg] = useState();
   const [snackbarClassName, setSnackbarClassName] = useState();
+  const [rejectFlag, setRejectFlag]= useState(false);
+  const [rejectMessage, setRejectMessage] = useState("");
   const handleClose = () => {
    
     setOpen(false);
   };
-   
+
   const action = (
   
       <button onClick={handleClose} >
@@ -217,6 +220,7 @@ function Assignments(Props) {
                               className="btn btn-primary view-btn"
                               onClick={() => {
                                 setApprovedFlag(item);
+                                setRejectFlag(true);
                                 RejectAssignmentFunction();
                               }}
                             >
@@ -288,6 +292,7 @@ function Assignments(Props) {
           </div>
         </>
       )}
+      {/* <FormDialog rejectFlag={rejectFlag} setRejectFlag={setRejectFlag} rejectMessage={rejectMessage} setRejectMessage={setRejectMessage} RejectAssignmentFunction={RejectAssignmentFunction}/> */}
     </>
   );
 }
