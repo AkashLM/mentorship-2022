@@ -17,7 +17,7 @@ function Navbar(props) {
       </div>
       <div className="flex text-white font-semibold p-2  justify-center items-center ">
         <div className="p-1  pr-3 pl-3 border-gray-400 hover:cursor-pointer flex flex-col justify-center items-center">
-          You have logging-in as
+          You're logging-in as
           {adminLog ? (
             <div> Admin</div>
           ) : mentorLog ? (
