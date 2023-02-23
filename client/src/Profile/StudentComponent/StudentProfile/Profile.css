@@ -98,6 +98,7 @@
   overflow: hidden;
   margin: 1rem auto;
   background-color: #ffffff;
+  position: relative;
 }
 
 .section1{
@@ -106,6 +107,7 @@
 }
 .empty{
   height: 100%;
+  border-radius: var(--corner-radius);
 }
 .profilebg {
   display: flex;
@@ -126,20 +128,20 @@
 }
 
 
-.profile{
+.profile2{
   display: block;
   /* align-items: flex-end;
   vertical-align: bottom; */
   margin: -7rem auto auto 3rem;
 }
 
-.profile img {
+.profile2 img {
   border-radius: 50%;
   vertical-align: bottom;
   height: 15rem;
   width: 15rem;
   border: solid 3px white;
-  margin-top: 50%;
+  margin-top: 10%;
 }
 
 .editProfileButton{

@@ -24,7 +24,7 @@ function Profile(props) {
               <img src={background} alt="background" />
             </div>
             <div className="profileEdit">
-              <div className="profile">
+              <div className="profile2">
                 <img
                   className="rounded-full"
                   src={DefaultImage}
