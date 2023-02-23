@@ -61,10 +61,10 @@ const WithLogin = (Props) => {
       }
     );
     if (UserData) {
-      console.log("UserData", UserData.data.data.New_User_Details);
+      // console.log("UserData", UserData.data.data.New_User_Details);
       setUserDataT(UserData.data.data.New_User_Details);
       setLoading1(false);
-      console.log("userDataT", userDataT);
+      // console.log("userDataT", userDataT);
       if (userDataT.TypeofUser === "Admin") {
         setTypeOfUser("Admin");
       } else if (userDataT.TypeofUser === "Mentor") {
@@ -90,10 +90,10 @@ const WithLogin = (Props) => {
           },
         }
       );
-      console.log("StudentData", StudentData);
+      // console.log("StudentData", StudentData);
       if (StudentData) {
         setStudentData(StudentData);
-        console.log("Student", StudentData);
+        // console.log("Student", StudentData);
         setLoading2(false);
       }
     };
@@ -101,7 +101,7 @@ const WithLogin = (Props) => {
   };
   //Mentor data fetch function
   const FMentoDataFunction = () => {
-    console.log("weee", userDataT.Name);
+    // console.log("weee", userDataT.Name);
     const MentorDataFunction = async () => {
       const MentorData = await axios.post(
         `${BASEURL}/ViewMentorProfile`,
@@ -114,9 +114,9 @@ const WithLogin = (Props) => {
           },
         }
       );
-      console.log("Mentor", MentorData);
+      // console.log("Mentor", MentorData);
       if (MentorData) {
-        console.log("Mentor", MentorData);
+        // console.log("Mentor", MentorData);
         setMentorData(MentorData.data.data);
         const SubmissionData = await axios.post(
           `${BASEURL}/ViewNotes`,

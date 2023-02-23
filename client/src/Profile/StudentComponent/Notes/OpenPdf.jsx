@@ -72,8 +72,8 @@ const card = (
 
 export default function OutlinedCard(Props) {
   const { studentData, noteSelect, setNoteSelect } = Props;
-  console.log("noteSelect", noteSelect);
-  console.log("hhhh", DateConverter('2023-01-08T03:12:59.536Z', 'Date'))
+  // console.log("noteSelect", noteSelect);
+  // console.log("hhhh", DateConverter('2023-01-08T03:12:59.536Z', 'Date'))
   return (
     <div className="OpenPdfContainer">
       <h2 className="pageHeading text-center ">Latest Notes Section</h2>

@@ -69,7 +69,7 @@ export default function Notes(Props) {
     if (NoteData) {
       setNotesList(NoteData.data.data);
       setLoading(false);
-      console.log("notesList", NoteData);
+      // console.log("notesList", NoteData);
     }
   };
 
@@ -91,7 +91,7 @@ export default function Notes(Props) {
       }
     );
     if (UserData) {
-      console.log("8888888", UserData);
+      // console.log("8888888", UserData);
       setTopicName("");
       setDesc("");
       setOpen(true);
@@ -142,7 +142,7 @@ export default function Notes(Props) {
               className="grid "
             >
               {notesList.map((item, index) => {
-                console.log(item);
+                // console.log(item);
                 return (
                   <Grid item xs={2} sm={2} md={3} key={index}>
                     <Item className="item one">

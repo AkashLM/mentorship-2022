@@ -3,7 +3,7 @@ import "./PersonalDeatils.css";
 
 function PersonalDeatils({ studentData }) {
   const data = studentData?.data.data;
-  console.log("studentData", studentData);
+  // console.log("studentData", studentData);
 
   useEffect(() => {}, []);
 

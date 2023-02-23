@@ -20,7 +20,7 @@ function StudentProfile({ studentData }) {
       " None",
   });
   let ValueSetterFunction;
-  console.log("studentData------------>",studentData);
+  // console.log("studentData------------>",studentData);
   if(studentData){
     ValueSetterFunction = () => {
       let TempObj = {

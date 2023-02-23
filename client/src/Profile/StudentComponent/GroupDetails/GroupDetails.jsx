@@ -102,11 +102,11 @@ export default function BasicTable({ studentData }, Props) {
     );
 
     if (ListData) {
-      console.log("-------------->",ListData);
+      // console.log("-------------->",ListData);
       setGroupDataStudent(ListData?.data?.StudentData);
       setGroupDataMentor(ListData?.data?.MentorData);
-      console.log("ListDataGroupDataStudent", GroupDataStudent);
-      console.log("ListDataGroupDataMentor", GroupDataMentor);
+      // console.log("ListDataGroupDataStudent", GroupDataStudent);
+      // console.log("ListDataGroupDataMentor", GroupDataMentor);
       setLinkedIn(ListData?.data.MentorData[0]?.Mentor_LinkedIn);
       setEmailId(ListData?.data.MentorData[0]?.Mentor_EmailId);
       setLoading(false);
