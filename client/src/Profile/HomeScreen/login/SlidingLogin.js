@@ -159,7 +159,7 @@ function FieldsLogin(props) {
           }
           id="SlidingContainer"
         >
-          <div class="form-container sign-up-container">
+          <div className="form-container sign-up-container">
             <Formik initialValues={initialValues} onSubmit={OnClickSignUp}>
               {(props) => (
                 <Form>
@@ -225,7 +225,13 @@ function FieldsLogin(props) {
               )}
             </Formik>
           </div>
-          <div class="form-container sign-in-container">
+          <div 
+          className={
+            forgetPass
+              ? "form-container sign-in-container forget-pass-container-notVisible"
+              : "form-container sign-in-container forget-pass-container-visible"
+          }
+          >
             <Formik initialValues={initialValues} onSubmit={OnClickLogin}>
               {(props) => (
                 <Form>
