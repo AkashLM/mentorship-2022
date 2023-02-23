@@ -20,7 +20,7 @@ function ScheduledMeetings(Props) {
   const [previousMeetings, setPreviousMeetings] = useState([]);
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
-  console.log("MentorData", mentorData);
+  // console.log("MentorData", mentorData);
   const MeetingsDataFunction = async () => {
     const MeetingData = await axios.post(
       `${BASEURL}/ViewMeetings`,
@@ -35,7 +35,7 @@ function ScheduledMeetings(Props) {
     );
     if (MeetingData) {
       setAllMeeting(MeetingData.data.data);
-      console.log("da", allMeeting);
+      // console.log("da", allMeeting);
       const arr1 = [];
       const arr2 = [];
       allMeeting.map((obj) => {
@@ -48,8 +48,8 @@ function ScheduledMeetings(Props) {
         }
       });
       if (scheduledMeetings && previousMeetings) {
-        console.log("da3", scheduledMeetings);
-        console.log("da4", previousMeetings);
+        // console.log("da3", scheduledMeetings);
+        // console.log("da4", previousMeetings);
         setLoading(false);
       }
     }
@@ -57,7 +57,7 @@ function ScheduledMeetings(Props) {
 
   useEffect(() => {
     MeetingsDataFunction();
-    console.log("previousMeetings", previousMeetings);
+    // console.log("previousMeetings", previousMeetings);
   }, [loading]);
 
   return (

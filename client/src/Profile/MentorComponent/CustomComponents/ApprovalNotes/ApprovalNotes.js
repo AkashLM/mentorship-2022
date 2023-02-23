@@ -127,7 +127,7 @@ const ApprovalNotes = (Props) => {
                               selectValue.current = item._id;
                               setDeleteMsg(item);
                               DeleteNoteFunction(selectValue.current);
-                              console.log("DeleteMsg", DeleteMsg);
+                              // console.log("DeleteMsg", DeleteMsg);
                               setOpen(true);
                               setSnackbarMsg("Deleted Successfully")
                               setSnackbarClassName("invalid")
@@ -168,7 +168,7 @@ const ApprovalNotes = (Props) => {
                                 value={reasonOfDeleteMsg}
                                 onChange={(Event) => {
                                   setReasonOfDeleteMsg(Event.target.value);
-                                  console.log(reasonOfDeleteMsg);
+                                  // console.log(reasonOfDeleteMsg);
                                 }}
                               />{" "}
                               <br />

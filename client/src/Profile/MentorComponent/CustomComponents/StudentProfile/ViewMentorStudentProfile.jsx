@@ -20,7 +20,7 @@ function ViewMentorStudentProfile({ viewStudentProfile }) {
       " started my journey for WEB3.0 after relajadks blah blah blah blah bleh bleh and it worked",
   });
   let ValueSetterFunction;
-  console.log("viewStudentProfile------------>",viewStudentProfile);
+  // console.log("viewStudentProfile------------>",viewStudentProfile);
   if(viewStudentProfile){
     ValueSetterFunction = () => {
       let TempObj = {

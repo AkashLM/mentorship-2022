@@ -50,7 +50,7 @@ const AddMeeting = (props) => {
       }
     );
     if(MeetingData){
-      console.log("bbbbbbb----------:",MeetingData);
+      // console.log("bbbbbbb----------:",MeetingData);
     }
     };
 
@@ -79,7 +79,7 @@ const AddMeeting = (props) => {
 
     onSubmit: (values) => {
       // CreateMeetingsDataFunction(values);
-      console.log("mmmmmmmmmmmm",values);
+      // console.log("mmmmmmmmmmmm",values);
       CreateMeetingsDataFunction(values);
       formik.resetForm({ values: "" });
       setOpen(true);

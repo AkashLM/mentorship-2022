@@ -27,9 +27,9 @@ function StudentsList(Props) {
       }
     );
     if (ListData) {
-      console.log("-------------->", ListData);
+      // console.log("-------------->", ListData);
       setGroupDataStudent(ListData?.data?.StudentData);
-      console.log("ListDataGroupDataStudent", GroupDataStudent);
+      // console.log("ListDataGroupDataStudent", GroupDataStudent);
       setLoading(false);
     }
   };

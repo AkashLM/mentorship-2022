@@ -72,13 +72,13 @@ function FieldsSignUp(props) {
             setData(Data.data.message);
             cookies.set("KeyToken", Data.data.data, { maxAge: 604800 });
             const KeyToken = cookies.get("KeyToken");
-            console.log("Cookie", KeyToken);
+            // console.log("Cookie", KeyToken);
             setOpen(true);
             setSignUpMsg("Sign up  successfully !");
           }
         })
         .catch((ErrorR) => {
-          console.log(ErrorR.response.data.message);
+          // console.log(ErrorR.response.data.message);
           setError(ErrorR.response.data.message);
           setOpen(true);
           setSignUpMsg(ErrorR.response.data.message);
@@ -162,7 +162,7 @@ function FieldsSignUp(props) {
                   className="p-3 w-80 font-mono text-sm login outline-none rounded-md shadow"
                   onChange={(Event) => {
                     setPassword(Event.target.value);
-                    console.log("Password", password);
+                    // console.log("Password", password);
                   }}
                 />
               </div>
@@ -177,7 +177,7 @@ function FieldsSignUp(props) {
                   className="p-3 w-80 font-mono text-sm login outline-none rounded-md shadow-sm"
                   onChange={(Event) => {
                     setConfirmPassword(Event.target.value);
-                    console.log("Confirm Password", confirmPassword);
+                    // console.log("Confirm Password", confirmPassword);
                   }}
                 />
               </div>

@@ -83,12 +83,12 @@ function Profile(props) {
       }
     );
     if (AssignmentData) {
-      console.log("AssignmentData", AssignmentData);
+      // console.log("AssignmentData", AssignmentData);
       setassignmentsPending(AssignmentData.data.data1.length);
       setassignmentApproved(AssignmentData.data.data2.length);
     }
   };
-  console.log("88888", mentorData);
+  // console.log("88888", mentorData);
   useEffect(() => {
     CounterAssignmentStatus();
   }, [submissionStatus, mentorData]);

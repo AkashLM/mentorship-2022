@@ -3,7 +3,7 @@ import "./PersonalDeatils.css";
 
 function PersonalDeatils({ viewStudentProfile }) {
   const data = viewStudentProfile;
-  console.log("viewStudentProfile", viewStudentProfile);
+  // console.log("viewStudentProfile", viewStudentProfile);
 
   useEffect(() => {}, []);
 

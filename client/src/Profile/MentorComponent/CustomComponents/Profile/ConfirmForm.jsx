@@ -16,7 +16,7 @@ function ConfirmForm({ mentorData,setMentorData, setEdit }) {
     experience: "10",
   });
   const submitDetails=()=>{
-    console.log("tttttttttttttttttttt-",initialValues);
+    // console.log("tttttttttttttttttttt-",initialValues);
   }
 
   return (

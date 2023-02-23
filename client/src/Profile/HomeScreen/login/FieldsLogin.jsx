@@ -19,7 +19,7 @@ function FieldsLogin(props) {
   const [Error, setError] = useState("");
   const [data, setData] = useState();
 
-  console.log(emailIdLogin, "......", password);
+  // console.log(emailIdLogin, "......", password);
   const {
     adminLog,
     // setSignup,
@@ -82,7 +82,7 @@ function FieldsLogin(props) {
         setError(ErrorR?.response?.data?.message);
       });
   };
-  console.log("....", Error);
+  // console.log("....", Error);
 
   const [initialValues, setInitialvalues] = useState({
     name: "",

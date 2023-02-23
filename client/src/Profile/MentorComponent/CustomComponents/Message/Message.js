@@ -25,7 +25,7 @@ function Message(Props) {
     </button>
   );
   const handelSubmitMessage = async () => {
-    console.log("mm", msgTitle, msgDesc);
+    // console.log("mm", msgTitle, msgDesc);
     const MsgRes = await axios.post(
       `${BASEURL}/AddMessage`,
       {
@@ -44,7 +44,7 @@ function Message(Props) {
       }
     );
     if (MsgRes) {
-      console.log("Message handelSubmitMessage", MsgRes);
+      // console.log("Message handelSubmitMessage", MsgRes);
       setMsgDesc("");
       setMsgTitle("");
       setOpen(true);
