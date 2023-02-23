@@ -25,7 +25,7 @@ import MentorAssignment from "../Profile/MentorComponent/CustomComponents/Assign
 import ViewMentorStudentProfile from "../Profile/MentorComponent/CustomComponents/StudentProfile/ViewMentorStudentProfile";
 import CircularColor from "../HelpingFunctions/Loader";
 import LogoutLoader from "../HelpingFunctions/LogoutLoader";
-import PageNotFound from "./PageNotFound"
+import PageNotFound from "./PageNotFound";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -82,7 +82,7 @@ const WithLogin = (Props) => {
       const StudentData = await axios.post(
         `${BASEURL}/ViewStudentProfile`,
         {
-          Res_Student_Name: userDataT.Name,
+          Res_Student_Email: userDataT.emailId,
         },
         {
           headers: {
@@ -106,7 +106,7 @@ const WithLogin = (Props) => {
       const MentorData = await axios.post(
         `${BASEURL}/ViewMentorProfile`,
         {
-          Res_Mentor_Name: userDataT.Name,
+          Res_Mentor_Email: userDataT.emailId,
         },
         {
           headers: {
@@ -137,7 +137,7 @@ const WithLogin = (Props) => {
         }
       }
     };
-    
+
     MentorDataFunction();
   };
 
@@ -216,10 +216,7 @@ const WithLogin = (Props) => {
               path="/previousmeetup"
               element={<PreviousMeetup studentData={studentData} />}
             />
-             <Route
-              path="/*"
-              element={<PageNotFound />}
-            />
+            <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </>
       );
@@ -251,14 +248,29 @@ const WithLogin = (Props) => {
               path="/addmeeting"
               element={<AddMeeting mentorData={mentorData} />}
             />
-            <Route path="/studentlist" element={<StudentList mentorData={mentorData} setViewStudentProfile={setViewStudentProfile}/>} />
-            <Route path="/ViewStudentProfile" element={<ViewMentorStudentProfile viewStudentProfile={viewStudentProfile}/>} />
+            <Route
+              path="/studentlist"
+              element={
+                <StudentList
+                  mentorData={mentorData}
+                  setViewStudentProfile={setViewStudentProfile}
+                />
+              }
+            />
+            <Route
+              path="/ViewStudentProfile"
+              element={
+                <ViewMentorStudentProfile
+                  viewStudentProfile={viewStudentProfile}
+                />
+              }
+            />
             <Route path="/studentprofile" element={<StudentProfile />} />
             <Route
               path="/notes"
               element={
                 <PendingNotes
-                mentorData={mentorData}
+                  mentorData={mentorData}
                   typeOfUser={typeOfUser}
                   ViewNotesProp={ViewNotesProp}
                   setViewNotesProp={setViewNotesProp}
@@ -315,10 +327,7 @@ const WithLogin = (Props) => {
             />
 
             <Route path="/approved" element={<ApprovalNotes />} />
-            <Route
-              path="/*"
-              element={<PageNotFound />}
-            />
+            <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </>
       );
@@ -327,8 +336,10 @@ const WithLogin = (Props) => {
   return (
     <>
       {loading1 || loading2 ? (
-        <div><CircularColor/><LogoutLoader refresher={refresher}
-        setRefresher={setRefresher}/></div>
+        <div>
+          <CircularColor />
+          <LogoutLoader refresher={refresher} setRefresher={setRefresher} />
+        </div>
       ) : (
         <>{SwitchUserFunction(typeOfUser)}</>
       )}

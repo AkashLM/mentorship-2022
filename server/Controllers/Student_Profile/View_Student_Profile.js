@@ -1,10 +1,10 @@
 const {Student_Profile_Model}=require("../../DatabaseSetup/Mongoose.StudentProfile.Schema");
 const ViewStudentProfileFunction=async(req,res)=>{
-    const {Res_Student_Name}=req.body;
+    const {Res_Student_Email}=req.body;
     try{
         //If want to fetch individual student profile.
         if(Res_Student_Name){
-            const ViewedStatus= await Student_Profile_Model.findOne({Student_Name:Res_Student_Name});
+            const ViewedStatus= await Student_Profile_Model.findOne({Student_EmailId:Res_Student_Email});
             if(ViewedStatus){
                 res.status(200).json({
                     status:"Success",

@@ -6,8 +6,14 @@ const SignUpFunction = async (req, res, next) => {
   console.log(req.body.Res_TypeofUser);
   try {
     const already_exist_Checks = await SignUp_Model.findOne({
-        //Solve the name matching conflicts
-      emailId: Res_EmailId,
+      $or: [
+        {
+          Name: Res_Name,
+        },
+        {
+          emailId: Res_EmailId,
+        },
+      ],
     });
     if (!already_exist_Checks) {
       const SavedData_SignUp = await SignUp_Model.create({

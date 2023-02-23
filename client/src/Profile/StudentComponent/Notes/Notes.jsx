@@ -32,20 +32,19 @@ export default function Notes(Props) {
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   //
-   // for snackBar
-   const [open, setOpen] = useState(false);
-   const [snackbarMsg, setSnackbarMsg] = useState();
-   const [snackbarClassName, setSnackbarClassName] = useState();
-   const handleClose = () => {
-    
-     setOpen(false);
-   };
-    
-   const action = (
-     <button onClick={handleClose}>
-       <RxCross2 />
-     </button>
-   );
+  // for snackBar
+  const [open, setOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState();
+  const [snackbarClassName, setSnackbarClassName] = useState();
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const action = (
+    <button onClick={handleClose}>
+      <RxCross2 />
+    </button>
+  );
   //
   const date = new Date();
   let day = date.getDate();
@@ -95,8 +94,8 @@ export default function Notes(Props) {
       setTopicName("");
       setDesc("");
       setOpen(true);
-      setSnackbarMsg("Note Uploaded")
-      setSnackbarClassName("valid")
+      setSnackbarMsg("Note Uploaded");
+      setSnackbarClassName("valid");
     }
   };
 
@@ -106,26 +105,27 @@ export default function Notes(Props) {
   return (
     <>
       {loading ? (
-         <>
-         <div><CircularColor/><LogoutLoader refresher={refresher}
-         setRefresher={setRefresher}/></div>
-         </>
+        <>
+          <div>
+            <CircularColor />
+            <LogoutLoader refresher={refresher} setRefresher={setRefresher} />
+          </div>
+        </>
       ) : (
         <>
-         <Snackbar className={snackbarClassName} 
-              sx={{ width: "310px"}}
-              open={open}
-              autoHideDuration={5000}
-              onClose={handleClose}
-              action={action}
-              message={snackbarMsg}
-              anchorOrigin={{
-                vertical: "Bottom",
-                horizontal: "Left",
-              }
-    
-            }
-            />
+          <Snackbar
+            className={snackbarClassName}
+            sx={{ width: "310px" }}
+            open={open}
+            autoHideDuration={5000}
+            onClose={handleClose}
+            action={action}
+            message={snackbarMsg}
+            anchorOrigin={{
+              vertical: "Bottom",
+              horizontal: "Left",
+            }}
+          />
           <h2 className="pageHeading text-center ">
             Group
             <span style={{ color: "blue" }}>
@@ -217,14 +217,11 @@ export default function Notes(Props) {
                             >
                               Download PDF
                             </Button>
-                            <a
-                              href="https://drive.google.com/file/d/1IBedXbYPyTkAJIMzd9U99sh2ELQah4k8/view"
-                              target="_blank"
-                            >
+                            <a href={item.Notes} target="_blank">
                               <Button
                                 className="btn"
                                 variant="contained"
-                                style={{marginTop: "5px", marginLeft:"5px"}}
+                                style={{ marginTop: "5px", marginLeft: "5px" }}
                                 onClick={() => {
                                   setNoteSelect(item);
                                 }}
