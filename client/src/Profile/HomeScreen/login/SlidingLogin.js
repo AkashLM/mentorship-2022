@@ -28,7 +28,7 @@ function FieldsLogin(props) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signUpMsg, setSignUpMsg] = useState("");
   //
-  console.log(emailIdLogin, "......", password);
+  // console.log(emailIdLogin, "......", password);
   const {
     adminLog,
     // setSignup,
@@ -99,7 +99,7 @@ function FieldsLogin(props) {
 
       });
   };
-  console.log("....", Error);
+  // console.log("....", Error);
 
   // Signup api
   const OnClickSignUp = () => {
@@ -130,7 +130,7 @@ function FieldsLogin(props) {
           }
         })
         .catch((ErrorR) => {
-          console.log(ErrorR.response.data.message);
+          // console.log(ErrorR.response.data.message);
           setError(ErrorR.response.data.message);
           setSnackbarClass("invalid")
           setOpen(true);
@@ -159,7 +159,7 @@ function FieldsLogin(props) {
           }
           id="SlidingContainer"
         >
-          <div class="form-container sign-up-container">
+          <div className="form-container sign-up-container">
             <Formik initialValues={initialValues} onSubmit={OnClickSignUp}>
               {(props) => (
                 <Form>
@@ -205,7 +205,7 @@ function FieldsLogin(props) {
                     placeholder="Enter Password"
                     onChange={(Event) => {
                       setPassword(Event.target.value);
-                      console.log("Password", password);
+                      // console.log("Password", password);
                     }}
                   />
                   <Field
@@ -216,7 +216,7 @@ function FieldsLogin(props) {
                     placeholder="Confirm Password"
                     onChange={(Event) => {
                       setConfirmPassword(Event.target.value);
-                      console.log("Confirm Password", confirmPassword);
+                      // console.log("Confirm Password", confirmPassword);
                     }}
                   />
                   <button type="submit">Sign Up</button>
@@ -225,7 +225,13 @@ function FieldsLogin(props) {
               )}
             </Formik>
           </div>
-          <div class="form-container sign-in-container">
+          <div 
+          className={
+            forgetPass
+              ? "form-container sign-in-container forget-pass-container-notVisible"
+              : "form-container sign-in-container forget-pass-container-visible"
+          }
+          >
             <Formik initialValues={initialValues} onSubmit={OnClickLogin}>
               {(props) => (
                 <Form>

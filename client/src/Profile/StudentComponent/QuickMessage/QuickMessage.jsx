@@ -57,7 +57,7 @@ const QuickMessage = ({ studentData }, Props) => {
     );
     if (PendingData) {
       setPMessagedata(PendingData.data.data1);
-      console.log("Message ", Messagedata);
+      // console.log("Message ", Messagedata);
       setLoading(false);
     }
   };
@@ -82,7 +82,7 @@ const QuickMessage = ({ studentData }, Props) => {
       }
     );
     if (MsgRes) {
-      console.log("Message handelSubmitMessage", MsgRes);
+      // console.log("Message handelSubmitMessage", MsgRes);
       setMsgDesc("");
       setMsgTitle("");
       setRefresh(!refresh);

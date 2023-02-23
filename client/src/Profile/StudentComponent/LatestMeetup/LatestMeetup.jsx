@@ -36,7 +36,7 @@ const LatestMeetup = (Props) => {
     );
     if (MeetingData) {
       setAllMeeting(MeetingData.data.data);
-      console.log("da", allMeeting);
+      // console.log("da", allMeeting);
       const arr1 = [];
       const arr2 = [];
       allMeeting.map((obj) => {
@@ -49,8 +49,8 @@ const LatestMeetup = (Props) => {
         }
       });
       if (scheduledMeetings && previousMeetings) {
-        console.log("da3", scheduledMeetings);
-        console.log("da4", previousMeetings);
+        // console.log("da3", scheduledMeetings);
+        // console.log("da4", previousMeetings);
         setLoading(false);
       }
     }
@@ -58,7 +58,7 @@ const LatestMeetup = (Props) => {
 
   useEffect(() => {
     MeetingsDataFunction();
-    console.log("previousMeetings", previousMeetings);
+    // console.log("previousMeetings", previousMeetings);
   }, [loading]);
   return (
     <>

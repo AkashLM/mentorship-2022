@@ -50,7 +50,7 @@ function Assignments(Props) {
       }
     );
     if (AssignmentData) {
-      console.log("AssignmentData", AssignmentData);
+      // console.log("AssignmentData", AssignmentData);
       setPendingAssignment(AssignmentData.data.data1);
       setApprovedAssignment(AssignmentData.data.data2);
       setLoading(false);
@@ -108,7 +108,7 @@ function Assignments(Props) {
     setOpen(true);
     setSnackbarMsg("Click Again")
     setSnackbarClassName("default")
-    console.log("ApprovedAssignmentFunction", approvedFlag);
+    // console.log("ApprovedAssignmentFunction", approvedFlag);
     const RejectedData = await axios.post(
       `${BASEURL}/AllowedAssignment`,
       {

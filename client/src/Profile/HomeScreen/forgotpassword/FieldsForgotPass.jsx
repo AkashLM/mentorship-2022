@@ -56,7 +56,7 @@ const OnClickLogin=()=>{
 //   });
 alert (" 😉 You will get an email from the team soon ! Thank you. 😉");
 }
-console.log("....",Error);
+// console.log("....",Error);
 
 
   const [initialValues, setInitialvalues] = useState({

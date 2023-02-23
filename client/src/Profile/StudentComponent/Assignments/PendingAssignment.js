@@ -14,7 +14,7 @@ import CircularColor from "../../../HelpingFunctions/Loader";
 function Assignments(Props) {
   const { refresher, setRefresher } = Props;
   const { studentData, setUploadSelector } = Props;
-  console.log(studentData.data.data.Coordinator);
+  // console.log(studentData.data.data.Coordinator);
   const Coordinator_Status = studentData.data.data.Coordinator;
   const [loading, setLoading] = useState(true);
   const [topicName, setTopicName] = useState("");
@@ -68,7 +68,7 @@ function Assignments(Props) {
     );
     if (UserData) {
       // event.preventDefault();
-      console.log("8888888", UserData);
+      // console.log("8888888", UserData);
       setOpen(true);
       setSnackbarMsg("Submission Request Created");
       setSnackbarClassName("valid");
@@ -92,8 +92,8 @@ function Assignments(Props) {
       setPdata(PendingData.data.data);
       setAdata(PendingData.data.data2);
       setLoading(false);
-      console.log("77", Pdata);
-      console.log("77", Adata);
+      // console.log("77", Pdata);
+      // console.log("77", Adata);
 
     }
   };
@@ -150,7 +150,7 @@ function Assignments(Props) {
                   </thead>
                   <tbody>
                     {Pdata.map((item, index) => {
-                      console.log("item", item);
+                      // console.log("item", item);
                       if (item.Approved === true) {
                         return (
                           <tr>
@@ -204,7 +204,7 @@ function Assignments(Props) {
                   </thead>
                   <tbody>
                     {Adata.map((item, index) => {
-                      console.log("Adata", Adata);
+                      // console.log("Adata", Adata);
                       if (item.Approved === true) {
                         return (
                           <tr>

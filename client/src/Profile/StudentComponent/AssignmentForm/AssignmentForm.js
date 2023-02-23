@@ -15,7 +15,7 @@ function AssignmentForm(Props) {
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   //
-  console.log("****",uploadSelector);
+  // console.log("****",uploadSelector);
   const date = new Date();
   let day = date.getDate();
   let month = date.getMonth() + 1;
@@ -56,7 +56,7 @@ function AssignmentForm(Props) {
       }
     );
     if (UserData) {
-      console.log("7777", UserData);
+      // console.log("7777", UserData);
       setOpen(true);
       setSnackbarMsg("Assignment Submited Successfully")
       setSnackbarClassName("valid")

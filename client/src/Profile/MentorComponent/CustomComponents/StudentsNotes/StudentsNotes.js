@@ -49,7 +49,7 @@ function StudentsNotes(Props,ref) {
     );
     if(NotesData){
       setMeetingData(NotesData);
-      console.log(MeetingData?.data?.data);
+      // console.log(MeetingData?.data?.data);
       setLoading(false);
     }
   };
@@ -68,7 +68,7 @@ function StudentsNotes(Props,ref) {
       }
     );
     if(ApprovalStatus){
-      console.log("ApprovalStatus",ApprovalStatus);
+      // console.log("ApprovalStatus",ApprovalStatus);
 
     }
   }
