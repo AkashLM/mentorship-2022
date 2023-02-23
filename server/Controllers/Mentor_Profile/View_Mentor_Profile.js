@@ -6,7 +6,7 @@ const ViewMentorProfileFunction = async (req, res) => {
   console.log(".....>", req);
   try {
     //If want to fetch individual mentor profile.
-    if (Res_Mentor_Name) {
+    if (Res_Mentor_Email) {
       const ViewedStatus = await Mentor_Profile_Model.findOne({
         Mentor_EmailId: Res_Mentor_Email,
       });

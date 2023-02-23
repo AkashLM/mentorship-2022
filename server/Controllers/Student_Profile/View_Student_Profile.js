@@ -3,7 +3,7 @@ const ViewStudentProfileFunction=async(req,res)=>{
     const {Res_Student_Email}=req.body;
     try{
         //If want to fetch individual student profile.
-        if(Res_Student_Name){
+        if(Res_Student_Email){
             const ViewedStatus= await Student_Profile_Model.findOne({Student_EmailId:Res_Student_Email});
             if(ViewedStatus){
                 res.status(200).json({
