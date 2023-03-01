@@ -8,15 +8,15 @@ const path = require('path');
 
 //Setting Up CORS Policy
 var corsOptions = {
-	"origin": "*",
-	"methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-	"preflightContinue": false,
-	"optionsSuccessStatus": 204
-}
-app.options('*', cors()) // preFlight
-app.use('*', cors(corsOptions), function (req, res, next) {
-	next()
-})
+	origin: '*',
+	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	preflightContinue: false,
+	optionsSuccessStatus: 204
+};
+app.options('*', cors()); // preFlight
+app.use('*', cors(corsOptions), function(req, res, next) {
+	next();
+});
 
 //Setting Up CORS Policy
 // app.use(
@@ -24,7 +24,6 @@ app.use('*', cors(corsOptions), function (req, res, next) {
 // 		origin: '*'
 // 	})
 // );
-
 
 const {
 	Router1,
@@ -64,10 +63,10 @@ const {
 	Router35,
 	Router36,
 	Router37,
-
+	Router38,
+	Router39,
+	Router40
 } = require('./Routers/router.config');
-
-
 
 //Body Parsing Configuration
 app.use(express.json());
@@ -119,6 +118,9 @@ try {
 	app.use('/api/v1/UnAssignedStudentsList', Router35);
 	app.use('/api/v1/PermissionGrouped', Router36);
 	app.use('/api/v1/GetMeetingDetailsOnMentorName', Router37);
+	app.use('/api/v1/AddMentees', Router38);
+	app.use('/api/v1/DeleteMentees', Router39);
+	app.use('/api/v1/StudentListOnMentorName', Router40);
 
 	//meeting pending and approved
 	//assignment pending and approved
@@ -143,7 +145,7 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
 	app.get('*', (req, res) => {
-		res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+		res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 	});
 }
 

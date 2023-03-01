@@ -36,6 +36,9 @@ const Router34 = express.Router();
 const Router35 = express.Router();
 const Router36 = express.Router();
 const Router37 = express.Router();
+const Router38 = express.Router();
+const Router39 = express.Router();
+const Router40 = express.Router();
 
 const { LoginFunction } = require('../Controllers/Common_Controller/Login');
 const { SignUpFunction } = require('../Controllers/Common_Controller/SignUp');
@@ -62,24 +65,26 @@ const { TokenGenerator_Middleware } = require('../Authentication/TokenGenerator.
 const { MeetingStatus_Middleware } = require('../Authentication/MeetingStatus.Middleware');
 const { GetUserMiddleware } = require('../Authentication/GetUser.Middleware');
 const { DownloadAssignment } = require('../Controllers/Student_Profile/DownloadAssignment');
-const { Candidate_Function } = require("../Controllers/Common_Controller/Candidate");
-const { View_Candidate_Function } = require("../Controllers/Common_Controller/ViewCandidate");
-const { Upload_Assignment_Cordi_Function } = require("../Controllers/Student_Profile/Upload_Assignment_Cordi");
-const { Upload_Assignment_Student_Function } = require("../Controllers/Student_Profile/Upload_Assignment_Student");
-const { ViewAllAssignments_Function } = require("../Controllers/Student_Profile/ViewAllAssigmentsByStudent");
-const { Delete_Assignments_Function } = require("../Controllers/Mentor_Profile/Delete_Assignment");
-const { View_Group_List_Function } = require("../Controllers/Common_Controller/ViewGroupList");
-const { View_Assignment_Mentor_Function } = require("../Controllers/Mentor_Profile/View_Assignment_Mentor_Function");
-const { Permission_Assignment_Function } = require("../Controllers/Mentor_Profile/Permission_Assignment");
-
+const { Candidate_Function } = require('../Controllers/Common_Controller/Candidate');
+const { View_Candidate_Function } = require('../Controllers/Common_Controller/ViewCandidate');
+const { Upload_Assignment_Cordi_Function } = require('../Controllers/Student_Profile/Upload_Assignment_Cordi');
+const { Upload_Assignment_Student_Function } = require('../Controllers/Student_Profile/Upload_Assignment_Student');
+const { ViewAllAssignments_Function } = require('../Controllers/Student_Profile/ViewAllAssigmentsByStudent');
+const { Delete_Assignments_Function } = require('../Controllers/Mentor_Profile/Delete_Assignment');
+const { View_Group_List_Function } = require('../Controllers/Common_Controller/ViewGroupList');
+const { View_Assignment_Mentor_Function } = require('../Controllers/Mentor_Profile/View_Assignment_Mentor_Function');
+const { Permission_Assignment_Function } = require('../Controllers/Mentor_Profile/Permission_Assignment');
 //Admin Routing Function
-const { MentorListFunction } = require("../Controllers/Admin_Profile/List_Of_Mentor");
-const { AssignMentorListFunction } = require("../Controllers/Admin_Profile/Assign_Mentor_List");
-const { UnAssignMentorListFunction } = require("../Controllers/Admin_Profile/Unassign_Mentor_List");
-const { AssignStudentFunction } = require("../Controllers/Admin_Profile/Assign_Student_List");
-const { UnAssignStudentFunction } = require("../Controllers/Admin_Profile/UnAssign_Student_List");
-const { PermissionStudentFunction } = require("../Controllers/Admin_Profile/Permission_Group");
-const { Meeting_Details } = require("../Controllers/Admin_Profile/Meeting_Details")
+const { Add_Mentees } = require('../Controllers/Admin_Profile/Add_Mentees');
+const { Delete_Mentees } = require('../Controllers/Admin_Profile/Delete_Mentees');
+const { MentorListFunction } = require('../Controllers/Admin_Profile/List_Of_Mentor');
+const { AssignMentorListFunction } = require('../Controllers/Admin_Profile/Assign_Mentor_List');
+const { UnAssignMentorListFunction } = require('../Controllers/Admin_Profile/Unassign_Mentor_List');
+const { AssignStudentFunction } = require('../Controllers/Admin_Profile/Assign_Student_List');
+const { UnAssignStudentFunction } = require('../Controllers/Admin_Profile/UnAssign_Student_List');
+const { PermissionStudentFunction } = require('../Controllers/Admin_Profile/Permission_Group');
+const { Meeting_Details } = require('../Controllers/Admin_Profile/Meeting_Details');
+const { Student_List_On_Mentor } = require('../Controllers/Admin_Profile/Student_List_On_Mentor');
 
 Router1.route('/').post(LoginFunction, TokenGenerator_Middleware);
 Router2.route('/').post(SignUpFunction, TokenGenerator_Middleware);
@@ -102,10 +107,10 @@ Router18.route('/').post(AuthenticationMiddleware, GetUserMiddleware, DeleteNote
 Router19.route('/').post(AuthenticationMiddleware, GetUserMiddleware, View_One_Note);
 // Router20.route('/').post(AuthenticationMiddleware, UploadAssignment);
 // Router21.route('/:mentorID/:assignmentID').get(AuthenticationMiddleware, DownloadAssignment);
-// 
+//
 Router22.route('/').post(Candidate_Function);
 Router23.route('/').get(View_Candidate_Function);
-// 
+//
 Router24.route('/').post(AuthenticationMiddleware, Upload_Assignment_Cordi_Function);
 Router25.route('/').post(AuthenticationMiddleware, Upload_Assignment_Student_Function);
 Router26.route('/').post(AuthenticationMiddleware, ViewAllAssignments_Function);
@@ -120,7 +125,10 @@ Router33.route('/').post(UnAssignMentorListFunction);
 Router34.route('/').post(AssignStudentFunction);
 Router35.route('/').post(UnAssignStudentFunction);
 Router36.route('/').post(PermissionStudentFunction);
-Router37.route('/:groupName').get(Meeting_Details)
+Router37.route('/:groupName').get(Meeting_Details);
+Router38.route('/').post(Add_Mentees);
+Router39.route('/').post(Delete_Mentees);
+Router40.route('/').post(Student_List_On_Mentor);
 
 module.exports = {
 	Router1,
@@ -159,5 +167,8 @@ module.exports = {
 	Router34,
 	Router35,
 	Router36,
-	Router37
+	Router37,
+	Router38,
+	Router39,
+	Router40
 };

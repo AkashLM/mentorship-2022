@@ -10,9 +10,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ag-grid-react": "^28.2.1",
+    "react-bootstrap": "^2.4.0",
     "antd": "^5.1.0",
+    "ag-grid-community": "^28.2.1",
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
+    "@mui/x-data-grid": "latest",
     "formik": "^2.2.9",
     "hamburger-react": "^2.5.0",
     "pdfjs-dist": "^3.1.81",
@@ -30,7 +34,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "PORT=3000 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
