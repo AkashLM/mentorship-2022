@@ -20,13 +20,13 @@ const TokenGenerator_Middleware =(req,res,next)=>{
             });
             res.status(200).json({
                 status:"Success",
-                message:"User found Successfully !",
+                message:"User found Successfully!",
                 data:New_Token,
             });
         }else{
             res.status(500).json({
                 status:"Tokenization error",
-                message:"Failed to create token !"
+                message:"Failed to create token!"
             });
         }
     }catch(Error){

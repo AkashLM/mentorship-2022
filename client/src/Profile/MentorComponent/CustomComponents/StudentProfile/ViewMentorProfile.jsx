@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import mentorpic from "./mentor.png";
+import mentorpic from "./profile.png";
 import background from "./2.jpg";
 import { Link } from "react-router-dom";
 import ProfilePage from "./ProfilePage/ProfilePage";

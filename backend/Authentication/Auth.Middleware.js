@@ -13,7 +13,7 @@ const AuthenticationMiddleware = async (req, res, next) => {
     if (!Authorization) {
       res.status(500).json({
         status: "Error",
-        message: "Please provide a valid Authorization Token !",
+        message: "Please provide a valid Authorization Token!",
       });
     } else {
       const DecodedToken = await promisify(jwt.verify)(
@@ -23,7 +23,7 @@ const AuthenticationMiddleware = async (req, res, next) => {
       if (!DecodedToken) {
         res.status(500).json({
           status: "Error",
-          message: "Invalid Token !",
+          message: "Invalid Token!",
         });
         return;
       } else {
