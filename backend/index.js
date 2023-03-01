@@ -12,9 +12,9 @@ var corsOptions = {
 	"methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
 	"preflightContinue": false,
 	"optionsSuccessStatus": 204
-  }
+}
 app.options('*', cors()) // preFlight
-app.use('*', cors(corsOptions), function (req, res, next){
+app.use('*', cors(corsOptions), function (req, res, next) {
 	next()
 })
 
@@ -63,6 +63,7 @@ const {
 	Router34,
 	Router35,
 	Router36,
+	Router37,
 
 } = require('./Routers/router.config');
 
@@ -117,6 +118,10 @@ try {
 	app.use('/api/v1/AssignedStudentsList', Router34);
 	app.use('/api/v1/UnAssignedStudentsList', Router35);
 	app.use('/api/v1/PermissionGrouped', Router36);
+	app.use('/api/v1/GetMeetingDetailsOnMentorName', Router37);
+
+	//meeting pending and approved
+	//assignment pending and approved
 
 	//Error Handling Middleware
 
@@ -136,12 +141,12 @@ try {
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
-  
+
 	app.get('*', (req, res) => {
-	  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+		res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
 	});
-  }
-  
+}
+
 //
 app.listen(PORT, (Error) => {
 	console.log(`Application listening on PORT ${PORT}`);
