@@ -225,8 +225,7 @@ function FieldsLogin(props) {
               )}
             </Formik>
           </div>
-          <div 
-          className={
+          <div className={
             forgetPass
               ? "form-container sign-in-container forget-pass-container-notVisible"
               : "form-container sign-in-container forget-pass-container-visible"
@@ -289,6 +288,7 @@ function FieldsLogin(props) {
               )}
             </Formik>
           </div>
+         
           <div
             className={
               forgetPass
