@@ -25,6 +25,8 @@ import MentorAssignment from "../Profile/MentorComponent/CustomComponents/Assign
 import ViewMentorStudentProfile from "../Profile/MentorComponent/CustomComponents/StudentProfile/ViewMentorStudentProfile";
 import CircularColor from "../HelpingFunctions/Loader";
 import LogoutLoader from "../HelpingFunctions/LogoutLoader";
+//Admin Components
+import AdminProfile from "../Profile/AdminComponent/AdminProfile";
 import PageNotFound from "./PageNotFound";
 import axios from "axios";
 import Cookies from "universal-cookie";
@@ -48,6 +50,7 @@ const WithLogin = (Props) => {
     localStorage.getItem("mentorData") || {}
   );
   const [studentData, setStudentData] = useState({});
+  const [adminData, setAdminData]= useState ({});
   const BASEURL = process.env.REACT_APP_SAMPLE;
   const cookies = new Cookies();
   const UserTypeFunction = async () => {
@@ -61,12 +64,14 @@ const WithLogin = (Props) => {
       }
     );
     if (UserData) {
+      console.log("UserData", UserData);
       // console.log("UserData", UserData.data.data.New_User_Details);
       setUserDataT(UserData.data.data.New_User_Details);
       setLoading1(false);
       // console.log("userDataT", userDataT);
       if (userDataT.TypeofUser === "Admin") {
         setTypeOfUser("Admin");
+        FAdminDataFunction();
       } else if (userDataT.TypeofUser === "Mentor") {
         setTypeOfUser("Mentor");
         FMentoDataFunction();
@@ -141,10 +146,33 @@ const WithLogin = (Props) => {
     MentorDataFunction();
   };
 
+  const FAdminDataFunction = () => {
+    const FetchAdminDataFunction = async () => {
+      console.log("userDataT.emailId",userDataT.emailId);
+      const fetchAdmin = await axios.post(
+        `${BASEURL}/ViewAdminProfile`,
+        {
+          Res_Admin_EmailId: userDataT.emailId,
+        },
+        {
+          headers: {
+            Authorization: cookies.get("KeyToken"),
+          },
+        }
+      );
+      if (fetchAdmin) {
+        console.log("Adminn888", fetchAdmin);
+        setAdminData(fetchAdmin.data.data);
+        setLoading2(false);
+      }
+    };
+    FetchAdminDataFunction();
+  };
   useEffect(() => {
     UserTypeFunction();
   }, [loading1, loading2]);
   const SwitchUserFunction = (TypeOfUser) => {
+    console.log("----------", TypeOfUser);
     if (typeOfUser === "Student") {
       return (
         <>
@@ -328,6 +356,21 @@ const WithLogin = (Props) => {
 
             <Route path="/approved" element={<ApprovalNotes />} />
             <Route path="/*" element={<PageNotFound />} />
+          </Routes>
+        </>
+      );
+    }
+
+    if (typeOfUser === "Admin") {
+      return (
+        <>
+          <HamburgerButton1
+            color={"#fff"}
+            refresher={refresher}
+            setRefresher={setRefresher}
+          />
+          <Routes>
+            <Route path="/" element={<AdminProfile />} />
           </Routes>
         </>
       );
