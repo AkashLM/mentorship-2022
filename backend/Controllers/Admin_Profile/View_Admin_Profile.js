@@ -1,8 +1,8 @@
 const {Admin_Profile_Model}=require("../../DatabaseSetup/Mongoose.AdminProfile.Schema");
 const ViewAdminProfileFunction=async(req,res)=>{
-    const {Res_Admin_Name}=req.body;
+    const {Res_Admin_EmailId}=req.body;
     try{
-        const ViewedStatus= await Admin_Profile_Model.findOne({Admin_Name:Res_Admin_Name});
+        const ViewedStatus= await Admin_Profile_Model.findOne({Admin_EmailId:Res_Admin_EmailId});
         if(ViewedStatus){
             res.status(200).json({
                 status:"Success",
