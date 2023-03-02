@@ -32,6 +32,8 @@ import PageNotFound from './PageNotFound';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import AssignStudent from '../Admin/AssignStudents/AssignStudent';
+import Assignment from '../Admin/Assignments/Assignment';
+import Meeting from '../Admin/Meetings/Meeting';
 
 const WithLogin = (Props) => {
 	const { refresher, setRefresher } = Props;
@@ -314,6 +316,8 @@ const WithLogin = (Props) => {
 					<Routes>
 						<Route path="/" element={<AdminProfile />} />
 						<Route path="/assignStudents" element={<AssignStudent />} />
+						<Route path="/assignments" element={<Assignment />} />
+						<Route path="/meetings" element={<Meeting />} />
 					</Routes>
 				</Fragment>
 			);

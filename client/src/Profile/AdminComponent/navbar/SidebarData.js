@@ -17,6 +17,18 @@ export const SidebarData = [
 		path: '/assignStudents',
 		icon: <TbIcons.TbUserPlus />,
 		cName: 'nav-text'
+	},
+	{
+		title: 'Assignments',
+		path: '/assignments',
+		icon: <MdIcons.MdOutlineAssignmentLate />,
+		cName: 'nav-text'
+	},
+	{
+		title: 'Assignments',
+		path: '/meetings',
+		icon: <MdIcons.MdMeetingRoom />,
+		cName: 'nav-text'
 	}
 	// {
 	// 	title: 'Assignments',
