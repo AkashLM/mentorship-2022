@@ -85,8 +85,27 @@ export default function BasicTable({ studentData }, Props) {
   const [customMentorPic, setCustomeMentorPic] = useState("");
   const [loading, setLoading] = useState(true);
   const BASEURL = process.env.REACT_APP_SAMPLE;
+  const [mentorData,setMentorData]=useState('');
   const cookies = new Cookies();
-
+  useEffect(() => {
+    const FetchMentorData =async()=>{ 
+      const response=await axios.post(
+        `http://localhost:5000/api/v1/ViewMentorProfileOnGroupName`,
+      {
+        Res_Group_Name: studentData.data.data.Student_Group,
+      },
+      {
+        headers: {
+          Authorization: cookies.get("KeyToken"),
+        },
+      }
+    )
+      console.log(response.data.data.Mentor_review_url)
+      setMentorData(response.data.data)
+  }
+    FetchMentorData();
+  }, [ ])
+  
   const DetailedFunction = async () => {
     const ListData = await axios.post(
       `${BASEURL}/ViewGroupList`,
@@ -99,6 +118,7 @@ export default function BasicTable({ studentData }, Props) {
         },
       }
     );
+    
 
     if (ListData) {
       // console.log("-------------->",ListData);
@@ -194,6 +214,12 @@ export default function BasicTable({ studentData }, Props) {
                       Group Name:{" "}
                       <span>
                         &nbsp; {GroupDataMentor[0]?.Mentor_Group_Name}
+                      </span>
+                    </div>
+                    <div className="GroupName">
+                      A Message From Mentor:
+                      <span>
+                        &nbsp; <a target="_blank" href={mentorData.Mentor_review_url}>View</a>
                       </span>
                     </div>
                     <div className="mentorSocial">
