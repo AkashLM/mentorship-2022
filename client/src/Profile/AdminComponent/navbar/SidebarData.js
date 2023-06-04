@@ -25,6 +25,12 @@ export const SidebarData = [
 		cName: 'nav-text'
 	},
 	{
+		title: 'Mentor Profile',
+		path: '/mentorprofile',
+		icon: <MdIcons.MdGroup />,
+		cName: 'nav-text'
+	},
+	{
 		title: 'Assignments',
 		path: '/meetings',
 		icon: <MdIcons.MdMeetingRoom />,
