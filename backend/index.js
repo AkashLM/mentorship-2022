@@ -65,7 +65,8 @@ const {
 	Router37,
 	Router38,
 	Router39,
-	Router40
+	Router40,
+	Router41
 } = require('./Routers/router.config');
 
 //Body Parsing Configuration
@@ -121,6 +122,7 @@ try {
 	app.use('/api/v1/AddMentees', Router38);
 	app.use('/api/v1/DeleteMentees', Router39);
 	app.use('/api/v1/StudentListOnMentorName', Router40);
+	app.use('/api/v1/ViewMentorProfileOnGroupName', Router41);
 
 	//meeting pending and approved
 	//assignment pending and approved

@@ -39,6 +39,7 @@ const Router37 = express.Router();
 const Router38 = express.Router();
 const Router39 = express.Router();
 const Router40 = express.Router();
+const Router41 = express.Router();
 
 const { LoginFunction } = require('../Controllers/Common_Controller/Login');
 const { SignUpFunction } = require('../Controllers/Common_Controller/SignUp');
@@ -85,6 +86,7 @@ const { UnAssignStudentFunction } = require('../Controllers/Admin_Profile/UnAssi
 const { PermissionStudentFunction } = require('../Controllers/Admin_Profile/Permission_Group');
 const { Meeting_Details } = require('../Controllers/Admin_Profile/Meeting_Details');
 const { Student_List_On_Mentor } = require('../Controllers/Admin_Profile/Student_List_On_Mentor');
+const { ViewMentorProfileOnGroupFunction } = require('../Controllers/Mentor_Profile/View_Mentor_Profile_On_GroupName');
 
 Router1.route('/').post(LoginFunction, TokenGenerator_Middleware);
 Router2.route('/').post(SignUpFunction, TokenGenerator_Middleware);
@@ -129,6 +131,7 @@ Router37.route('/:groupName').get(Meeting_Details);
 Router38.route('/').post(Add_Mentees);
 Router39.route('/').post(Delete_Mentees);
 Router40.route('/').post(Student_List_On_Mentor);
+Router41.route('/').post(ViewMentorProfileOnGroupFunction);
 
 module.exports = {
 	Router1,
@@ -170,5 +173,6 @@ module.exports = {
 	Router37,
 	Router38,
 	Router39,
-	Router40
+	Router40,
+	Router41
 };
