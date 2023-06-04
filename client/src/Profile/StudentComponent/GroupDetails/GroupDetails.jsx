@@ -90,7 +90,7 @@ export default function BasicTable({ studentData }, Props) {
   useEffect(() => {
     const FetchMentorData =async()=>{ 
       const response=await axios.post(
-        `http://localhost:5000/api/v1/ViewMentorProfileOnGroupName`,
+        `${BASEURL}/ViewMentorProfileOnGroupName`,
       {
         Res_Group_Name: studentData.data.data.Student_Group,
       },
