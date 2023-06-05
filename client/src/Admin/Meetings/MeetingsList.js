@@ -1,5 +1,13 @@
 import { Button, Card } from 'react-bootstrap';
+import { useEffect } from 'react';
 const MeetingsList = (props) => {
+	useEffect(() => {
+		const fetch = () => {
+			console.log(props.list);
+		};
+		fetch();
+	}, []);
+
 	return (
 		<div>
 			<h1>Pending Meetings</h1>
@@ -19,6 +27,11 @@ const MeetingsList = (props) => {
 							<Card.Body>
 								<Card.Title>{element.TopicName}</Card.Title>
 								<Card.Text>{element.Description}</Card.Text>
+								<Card.Text>
+									<a target="_blank" href={element.MinutesOfMeeting}>
+										View M.O.M
+									</a>
+								</Card.Text>
 								<Card.Text>{element.Location + ' at ' + element.Time}</Card.Text>
 							</Card.Body>
 						</Card>
@@ -42,6 +55,11 @@ const MeetingsList = (props) => {
 							<Card.Body>
 								<Card.Title>{element.TopicName}</Card.Title>
 								<Card.Text>{element.Description}</Card.Text>
+								<Card.Text>
+									<a target="_blank" href={element.MinutesOfMeeting}>
+										View M.O.M
+									</a>
+								</Card.Text>
 								<Card.Text>{element.Location + ' at ' + element.Time}</Card.Text>
 							</Card.Body>
 						</Card>
@@ -65,6 +83,11 @@ const MeetingsList = (props) => {
 							<Card.Body>
 								<Card.Title>{element.TopicName}</Card.Title>
 								<Card.Text>{element.Description}</Card.Text>
+								<Card.Text>
+									<a target="_blank" href={element.MinutesOfMeeting}>
+										View M.O.M
+									</a>
+								</Card.Text>
 								<Card.Text>{element.Location + ' at ' + element.Time}</Card.Text>
 							</Card.Body>
 						</Card>
