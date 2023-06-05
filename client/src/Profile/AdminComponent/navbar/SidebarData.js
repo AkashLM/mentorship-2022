@@ -31,7 +31,7 @@ export const SidebarData = [
 		cName: 'nav-text'
 	},
 	{
-		title: 'Assignments',
+		title: 'Meetings',
 		path: '/meetings',
 		icon: <MdIcons.MdMeetingRoom />,
 		cName: 'nav-text'
